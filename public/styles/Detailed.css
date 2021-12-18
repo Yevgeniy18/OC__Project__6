@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=EB+Garamond:ital,wght@0,500;1,400&display=swap');
+
+a {
+	text-decoration: none;
+}
+header {
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	color: #901c1c;
+}
+
+body {
+	font-family: 'DM Sans', sans-serif;
+position: relative;
+	max-width: 1200px;
+	margin: auto;
+  
+}
+
+/*****PHOTOGRAPH HEADER DATA******/
+
+.photograph__header {
+	height: 20vh;
+	background-color: rgb(248, 247, 247);
+	box-shadow: 0px 0px 8px 5px rgb(196, 192, 192);
+	padding: 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.photograph__contact__form {
+	padding: 1.2rem;
+	color: #fff;
+	background-color: #901c1c;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: transform 330ms ease-in-out;
+}
+
+.photograph__contact__form:hover {
+	transform: scale(1.05);
+}
+
+.header__img {
+	width: 200px;
+	height: 200px;
+}
+
+.header__img img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+}
+
+.header__basic{
+	max-width: 250px;
+}
+
+.header__basic h2 {
+	font-size: 3rem;
+	font-weight: 200;
+	color: #d3573c;
+	margin: 0;
+}
+
+.header__location {
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: #901c1c;
+}
+
+.header__tagline {
+	color: #525252;
+	font-weight: 200;
+}
+
+/*****PHOTOGRAPH MEDIA DATA******/
+
+
+
+.photograph__media{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+    margin-top: 5rem;
+
+
+
+}
+
+
+/******Counter*****/
+
+.counter__bg{
+    position: fixed;
+    height: 7vh;
+    width: 30%;
+    right: 12%;
+    bottom: 0;
+    border-radius: 10px 10px 0 0;
+    background:#d3573c; 
+    color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+}
+
+.total {
+	height: 50px;
+	width: 100px;
+	background-color: pink;
+}
+
+
+
+/***Media Container****/    
+
+.media__container{
+    display: flex;
+    flex-wrap: wrap;
+	position: relative;
+	flex-direction: column;
+    justify-content: space-around;
+	align-items: center;
+    height: 350px;
+    width: 300px;
+	margin: 2rem;
+	cursor: pointer;
+	
+}
+
+.media__pricing{
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	
+}
+
+.media__img{
+	position: absolute;
+	top: 0;
+	height: 80%;
+	width: 100%;
+	border-radius: 10px;
+
+}
+
+.media__img img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+}
+
+
+.media__vid{
+
+	height: 350px;
+	width: 300px;	
+}
+
+.media__vid video{
+	object-fit: cover;
+	width: 100%;
+	height: 70%;
+}

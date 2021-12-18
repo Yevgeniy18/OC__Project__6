@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FishEye</title>
+  <link rel="stylesheet" href="./public/styles/Home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <div class="logo">
+        <h1>Fish<i class="fas fa-camera"></i>eye</h1>
+      </div>
+    </a>
+
+    <form class="tags__section" action="#" method="POST">
+      <option value="portrait">#portrait</option>
+      <option value="events">#events</option>
+      <option value="travel">#travel</option>
+      <option value="animals">#animals</option>
+      <option value="sports">#sports</option>
+      <option value="architecture">#architecture</option>
+      <option value="fashion">#fashion</option>
+      <option value="art">#art</option>
+    </form>
+
+    <h2>Nos Photographes</h2>
+  </header>
+
+  <main>
+    <section class="photograph__list__section"></section>
+  </main>
+
+  <!-- Factories-->
+  <script src="./js/factories/filterPhotograph.js"></script>
+  <script src="./js/factories/photograph.js"></script>
+
+  <!-- API -->
+  <script src="./js/api/photographersApi.js"></script>
+
+  <!-- App -->
+  <script src="./js/pages/homePage.js"></script>
+</body>
+
+</html>
