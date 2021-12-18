@@ -25,14 +25,17 @@ position: relative;
 .photograph__header {
 	height: 20vh;
 	background-color: rgb(248, 247, 247);
-	box-shadow: 0px 0px 8px 5px rgb(196, 192, 192);
-	padding: 2rem;
+
+	padding: 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
 }
 
 .photograph__contact__form {
+	position: absolute;
+	left: 50%;
 	padding: 1.2rem;
 	color: #fff;
 	background-color: #901c1c;
@@ -57,16 +60,17 @@ position: relative;
 	border-radius: 50%;
 }
 
-.header__basic{
+/* .header__basic{
 	max-width: 250px;
-}
+} */
 
-.header__basic h2 {
+.header__basic h1 {
 	font-size: 3rem;
 	font-weight: 200;
 	color: #d3573c;
 	margin: 0;
 }
+
 
 .header__location {
 	font-size: 1.5rem;
@@ -76,6 +80,7 @@ position: relative;
 
 .header__tagline {
 	color: #525252;
+	font-size: 0.8rem;
 	font-weight: 200;
 }
 
@@ -85,10 +90,10 @@ position: relative;
 
 .photograph__media{
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-    margin-top: 5rem;
+    margin-top: 8rem;
 
 
 
@@ -100,17 +105,19 @@ position: relative;
 .counter__bg{
     position: fixed;
     height: 7vh;
-    width: 30%;
-    right: 12%;
+    width: 20%;
+    right: 15%;
     bottom: 0;
     border-radius: 10px 10px 0 0;
     background:#d3573c; 
     color: black;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	flex-direction: row-reverse;
+	justify-content: space-evenly;
 	font-size: 1.5rem;
 }
+
 
 .total {
 	height: 50px;
@@ -131,7 +138,7 @@ position: relative;
 	align-items: center;
     height: 350px;
     width: 300px;
-	margin: 2rem;
+	margin: 0.5rem;
 	cursor: pointer;
 	
 }
@@ -173,4 +180,9 @@ position: relative;
 	object-fit: cover;
 	width: 100%;
 	height: 70%;
+}
+
+.likes__tag{
+	display: flex;
+	align-items: center;
 }

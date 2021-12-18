@@ -21,7 +21,7 @@ function photographDetail(data, media) {
 				/*****BUILDING THE APPROPRIATE HTML TEMPLATE*****/
 				const header = `
                 <div class="header__basic">
-                <h2>${photographersData.name}</h2>
+                <h1>${photographersData.name}</h1>
                 <div class="header__location">
                 <p>${photographersData.city}, ${photographersData.country} </p>
                 </div>
