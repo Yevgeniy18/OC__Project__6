@@ -4,15 +4,11 @@ function photographDetail(data, media) {
 
 	const headerDetailSection = document.querySelector('.photograph__header');
 	const mediaSectionContainer = document.querySelector('.photograph__media');
-	const counterSection = document.querySelector('.counter__bg')
 
-	// Getting url info
-	/**EXTRACTING THE ID FROM THE URL PATH*/
 	const url = window.location.search;
 	const params = new URLSearchParams(url);
 	const idItem = params.get('id');
 	const idValue = parseInt(idItem);
-
 	function getPhotographDetails() {
 		/***ITERATING THE PHOTOGRAPHERS OBJECT AND VERIFYING IF THE ID PASSED AS THE PARAMETER MATCHES THE ID FOUND IN THE OBJECT****/
 		for (let i = 0; i < photographers.length; i++) {
@@ -27,7 +23,7 @@ function photographDetail(data, media) {
                 </div>
                 <p class="header__tagline">${photographersData.tagline}</p>
                  </div>
-                 <div class="photograph__contact__form">
+                 <div class="photograph__contact__form" onclick=handleModal()>
                  Contactez-moi
                </div>
                <div class="header__img">
@@ -35,22 +31,24 @@ function photographDetail(data, media) {
                </div>
                 `;
 
-		
-
 				/***ASSIGNING IT TO THE PREVIOUSLY CLEARED PHOTOGRAPH SECTION****/
 				headerDetailSection.innerHTML = header;
-				
 			}
 		}
 	}
 
 	function getPhotographMedia() {
-		mediaList.forEach((element) => {
-			if (element.photographerId === idValue) {
-				const mediaTemplateItem = mediaFactory(element);
-				const mediaCard = mediaTemplateItem.getMediaDom();
-				mediaSectionContainer.appendChild(mediaCard);
+		mediaList.forEach((media) => {
+			if (media.photographerId === idValue && media.image) {
+				const mediaTemplateItem = mediaFactory(media);
+				const imageCard = mediaTemplateItem.getImageDom();
+				mediaSectionContainer.appendChild(imageCard);
 			}
+			 else if (media.photographerId === idValue && media.video){
+				 const mediaTemplateItem = mediaFactory(media)
+				 const videoCard = mediaTemplateItem.getVideoDom()
+				 mediaSectionContainer.appendChild(videoCard)
+			 }
 		});
 	}
 

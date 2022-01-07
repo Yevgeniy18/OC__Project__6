@@ -1,25 +1,31 @@
-async function getMedia(){
-    const media = getPhotographerApi()
-    return media
+async function getMedia() {
+	const media = getPhotographerApi();
+	return media;
 }
 
-async function displayMedia(photographers, media){
+async function displayMedia(photographers, media) {
+	const photographDetails = photographDetail(photographers, media);
+	photographDetails.getPhotographDetails();
+	photographDetails.getPhotographMedia(media);
 
-    const photographDetails = photographDetail(photographers, media)
-    photographDetails.getPhotographDetails()
-    photographDetails.getPhotographMedia()
+	//GETTING NUMBER OF LIKES AND PRICE PER MEDIA
+	const Price = getExtraInfo(photographers, media);
+	Price.getPrice();
+	Price.getTotalLikes();
 
-    //GETTING NUMBER OFL LIKES AND PRICE PER PIC
+	//FILTER MEDIA BY POPULAITY OR DATE
+	const Filter = filterMedia(media);
+	Filter.onChangeFilter();
 
-    const Price = getExtraInfo(photographers, media)
-    Price.getPrice()
-    Price.getTotalLikes()
+	// const DropDown = dropDown()
 
+	const phDataModal = getModalData(photographers);
+	phDataModal.getPhName();
 }
 
-async function run(){
-    const {photographers, media} = await getMedia()
-    displayMedia(photographers, media)
+async function run() {
+	const { photographers, media } = await getMedia();
+	displayMedia(photographers, media);
 }
 
-run()
+run();

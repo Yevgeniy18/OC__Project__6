@@ -1,10 +1,7 @@
 function getExtraInfo(photographer, media) {
 	const photograph = photographer;
-	const mediaValue = media;
-	const mediaList = [];
 
-	//EXTRACTING ID VALUE
-
+	//EXTRACTING  PHTOOGRAPHER'S ID VALUE FROM HTML PATH
 	const url = window.location.search;
 	const params = new URLSearchParams(url);
 	const idItem = params.get('id');
@@ -18,25 +15,26 @@ function getExtraInfo(photographer, media) {
 		likesContainer.classList.add('likes__tag');
 		counter.appendChild(likesContainer);
 
-		//MATCHING THE ID FROM URL WITH OUR PHOTOGRAPHER's ID
-		mediaValue.forEach((elt) => {
-			if (elt.photographerId === idValue) {
-				mediaList.push(elt);
-			}
-		});
+		// FILTERING PHOTOGRAPHERS ACCORDING TO THEIR ID BY CREATING A FILTERED ARRAY OF OBJETCS
 
-		const total = mediaList.reduce(function(acc, currentValue) {
-			return acc + currentValue.likes;
+		let phMedia = media.filter((element) => element.photographerId === idValue);
+
+		let total = phMedia.reduce(function(acc, curr) {
+			return acc + curr.likes;
 		}, 0);
 
+		// SETTING UP HTML
+
 		const totalLikes = `
-		<p>${total}</p> <i class="fas fa-heart"></i>
-        `;
+		<p id="sum" class ="sum__likes">${total} </p> <i class="fas fa-heart"></i>
+		`;
 
 		likesContainer.innerHTML = totalLikes;
+
+		return likesContainer;
 	}
 
-	// GETTING PRICE
+	// GETTING  PHOTOGRAPHER HOURLY PRICE
 
 	function getPrice() {
 		const counter = document.querySelector('.counter__bg');
@@ -52,10 +50,10 @@ function getExtraInfo(photographer, media) {
 			}
 		});
 
-		const priceInfo = `<p>${priceTag}€/Jour</p>`;
+		const priceInfo = `<p>${priceTag}€ / Jour</p>`;
 
 		price.innerHTML = priceInfo;
 	}
 
-	return { getTotalLikes, getPrice };
+	return { getPrice, getTotalLikes };
 }
