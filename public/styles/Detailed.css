@@ -128,14 +128,129 @@ body {
 
 /**Drop Down Menu**/
 
-.select {
+
+
+.select__wrapper{
+	position: relative;
+	user-select: none;
+	margin-left: 2rem;
+	width: 200px;
+}
+
+.select{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border: none;
+
+}
+
+.select__trigger{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px;
+	font-size: 15px;
+	font-weight: 300;
+	color: #fff;
+	height: 60px;
+	line-height: 60px;
+	background: #901c1c;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+
+.custom__options{
+	position: absolute;
+	display: block;
+	top: 100%;
+	left: 0;
+	right: 0;
+	border: none;
+	border-top: 0;
+	background: #901c1c;
+	transition: all 0.5s;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	z-index: 2;
+}	
+
+.select.open .custom__options{
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
+}
+
+.custom__option {
+	position: relative;
+	display: block;
+	padding: 0 10px;
+	font-size: 15px;
+	font-weight: 300;
+	color: #fff;
+	line-height: 30px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.custom__option:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.527);
+	color: #fff;
+}
+.custom__option.selected {
+	color: #ffffff;
+	background-color: lighten(#901c1c, 10);
+	
+}
+
+.arrow{
+	position: relative;
+	height: 15px;
+	width: 15px;
+}
+
+.arrow::before, .arrow::after{
+	content: "";
+	position: absolute;
+	bottom: 0px;
+	width: 0.15rem;
+	height: 100%;
+	transition: all 0.5s;
+}
+
+.arrow::before{
+	left: -5px;
+	transform: rotate(45deg);
+	background: white;
+}
+
+.arrow::after{
+	left: 5px;
+	transform: rotate(-45deg);
+	background: white;
+}
+
+.open .arrow::before {
+	left: -5px;
+	transform: rotate(-45deg);
+}
+.open .arrow::after {
+	left: 5px;
+	transform: rotate(45deg);
+}
+
+/* .select {
 	position: relative;
 	margin-left: 2rem;
 	font-family: 'DM Sans', sans-serif;
 	grid-template-areas: "select";
 	display: grid;
-align-items: center;
-
+	align-items: center;
 }
 
 select {
@@ -144,48 +259,34 @@ select {
 	padding: 0 1em 0 0;
 	margin: 0;
 	width: 100%;
-	border-radius: 8px;
 }
-
-
-
 
 select {
 	outline: none;
 	background: #901c1c;
 	color: #fff;
 	padding: 0.5rem;
-	border:none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    -ms-appearance: none;
-	
-
-
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-ms-appearance: none;
 }
 
-
-
-.select::after{
+.select::after {
 	content: "";
 	width: 0.8em;
 	height: 0.5em;
-	background-color: #fff ;
+	background-color: #fff;
 	clip-path: polygon(100% 0, 0 0%, 50% 100%);
 	justify-self: end;
-margin-right: 1rem;
-	
-	
+	margin-right: 1rem;
 }
 
-select, .select:after{
+select,
+.select:after {
 	grid-area: select;
-}
-
-
-
-
+} */
 
 /***Media Container****/
 
@@ -238,8 +339,6 @@ select, .select:after{
 	align-items: center;
 }
 
-
-
 .media__img {
 	height: 70%;
 	width: 100%;
@@ -264,16 +363,6 @@ select, .select:after{
 	width: 100%;
 	border-radius: 5px;
 }
-
-
-
-
-
-
-
-
-
-
 
 /*****Modal Sending Message Form*****/
 
@@ -421,4 +510,92 @@ form label {
 
 .formData[data-error-visible="true"].text__control {
 	border: 2px solid red;
+}
+
+/***Lighbox***/
+
+.lightbox {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .9);
+	z-index: 10;
+}
+
+.lightbox__closed {
+	font-size: 2em;
+	color: #fff;
+	cursor: pointer;
+	position: absolute;
+	right: 2%;
+	top: 0%;
+}
+
+.lightbox__prev{
+	color: white;
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition: all 200ms ease-in-out;
+	position: absolute;
+	left: 0;
+	background: black;
+	padding: 15px;
+	border: none;
+	z-index: 99;
+}
+.lightbox__next {
+	color: white;
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition:all 200ms ease-in-out;
+	position: absolute;
+	right: 0;
+	background: black;
+	padding: 15px;
+	border: none;
+	z-index: 99;
+}
+
+.lightbox__next:hover,
+.lightbox__prev:hover{
+	opacity: 0.7;
+	
+	
+}
+
+.lightbox__container {
+	height: 80%;
+	width: 80%;
+	display: flex;
+	margin: 5% auto;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: -99;
+}
+
+.lightbox__media {
+	height: 100%;
+	width: 100%;
+	z-index: -2;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.lightbox__media img {
+	object-fit: scale-down;
+	height: 100%;
+	width: 100%;
+
+}
+
+.lightbox__video{
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
 }

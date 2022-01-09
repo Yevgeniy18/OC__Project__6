@@ -17,10 +17,16 @@ async function displayMedia(photographers, media) {
 	const Filter = filterMedia(media);
 	Filter.onChangeFilter();
 
-	// const DropDown = dropDown()
-
 	const phDataModal = getModalData(photographers);
 	phDataModal.getPhName();
+
+	// MEDIA 
+	// const Media = handleExtensions(media)
+
+	// DROPDOWN MENU FOR FILTER PURPOSE
+	const DropDown = dropDown()
+
+
 }
 
 async function run() {

@@ -1,7 +1,11 @@
 function incrementLikes(likes, id) {
-	let incResult = document.getElementById(id);
-	let sumSection = document.getElementById('sum');
+	
+	let likesValue = document.getElementById(id);
+	let result = (likesValue.innerHTML = likes + 1);
 
-	incResult.innerHTML = parseInt(incResult.innerHTML) + 1;
-	sumSection.innerHTML = parseInt(sumSection.innerHTML) + 1;
+	let likeTotal = document.getElementById('sum');
+
+	if (result) {
+		likeTotal.innerHTML = parseInt(likeTotal.innerHTML) + 1;
+	}
 }

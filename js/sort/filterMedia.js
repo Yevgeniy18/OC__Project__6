@@ -24,8 +24,6 @@ function filterMedia(media) {
 
 		mediaData.forEach((res) => {
 			if (res.photographerId === idValue && res.image) {
-			
-			
 				const filteredMedia = mediaFactory(res);
 				const filteredCard = filteredMedia.getImageDom();
 				mediaContainer.appendChild(filteredCard);
@@ -72,22 +70,24 @@ function filterMedia(media) {
 				const filteredMedia = mediaFactory(res);
 				const filteredCard = filteredMedia.getVideoDom();
 				mediaContainer.appendChild(filteredCard);
-			}	
+			}
 		});
 	}
 
 	/**ON CHANGE FUNCTION***/
 
 	function onChangeFilter() {
-		const filterWrapper = document.querySelector('.select');
+		const filterWrapper = document.querySelector('.custom__options');
 
-		filterWrapper.addEventListener('change', (e) => {
-			switch (e.target.value) {
+		filterWrapper.addEventListener('click', (e) => {
+			switch (e.target.id) {
 				case 'all':
 					displayAll();
+
 					break;
 				case 'likes':
 					filterByPopularity();
+
 					break;
 				case 'title':
 					filterByTitle();
