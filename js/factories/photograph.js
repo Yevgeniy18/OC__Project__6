@@ -13,10 +13,10 @@ function photographerFactory(data) {
 
     <h1 class="ph__name">${name}</h1>
     <div class="ph__location">
-    <h3>${city},${country}</h3>
+    <h3>${city}, ${country}</h3>
     </div>
     <p class="ph__tagline">${tagline}</p>
-    <p class= "ph__price">${price}€/hour</p>
+    <p class="ph__price">${price}€ /jour</p>
     <div class="ph__tags">
     ${tags.map((tag) => {
       return `<div>#${tag}</div>`;

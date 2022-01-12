@@ -25,6 +25,8 @@ header a {
 
 header h2{
   color: #901c1c;
+  padding-right: 2rem;
+  font-size: 2rem;
 }
 
 body {
@@ -119,7 +121,7 @@ width: 100%;
 .ph__tags div{
   margin:  0 0.25rem;
   font-size: 12px;
-  border: 0.5px solid gray;
+  border: 0.5px solid rgb(206, 205, 205);
   padding: 5px;
   border-radius: 20px;
   color: #901c1c;

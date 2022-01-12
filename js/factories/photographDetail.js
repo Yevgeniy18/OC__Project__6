@@ -4,11 +4,15 @@ function photographDetail(data, media) {
 
 	const headerDetailSection = document.querySelector('.photograph__header');
 	const mediaSectionContainer = document.querySelector('.photograph__media');
+	const lightBoxGallery = document.querySelector('.lightbox__gallery')
+
 
 	const url = window.location.search;
 	const params = new URLSearchParams(url);
 	const idItem = params.get('id');
 	const idValue = parseInt(idItem);
+
+
 	function getPhotographDetails() {
 		/***ITERATING THE PHOTOGRAPHERS OBJECT AND VERIFYING IF THE ID PASSED AS THE PARAMETER MATCHES THE ID FOUND IN THE OBJECT****/
 		for (let i = 0; i < photographers.length; i++) {
@@ -52,5 +56,23 @@ function photographDetail(data, media) {
 		});
 	}
 
-	return { getPhotographDetails, getPhotographMedia };
+
+	function getPhotographMediaLightBox(){
+		mediaList.forEach((media) => {
+			if(media.photographerId === idValue && media.image){
+				const imageTemplateLightbox = mediaFactory(media)
+				const imageCardLightBox = imageTemplateLightbox.getLightBoxImageDom()
+				lightBoxGallery.appendChild(imageCardLightBox)
+
+			} else if(media.photographerId === idValue && media.video){
+				const videoTemplateLightbox = mediaFactory(media)
+				const videoCardLightBox= videoTemplateLightbox.getLightBoxVideoDom()
+				lightBoxGallery.appendChild(videoCardLightBox)
+
+			}
+		})
+
+	}
+
+	return { getPhotographDetails, getPhotographMedia, getPhotographMediaLightBox };
 }

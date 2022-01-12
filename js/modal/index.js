@@ -12,55 +12,6 @@ function handleModal() {
 	modal.setAttribute('open-bg', true);
 	modal.removeAttribute('remove-bground');
 
-
-
-// 	const modalScheme  =
-
-// 	`
-
-// 	<div class="bground__modal">
-//     <div class="content__modal">
-//       <div class="modal__header">
-//         <div class="contact__ph">
-//           <h2>
-//             Contactez Moi
-//           </h2>
-//           <div class="ph__name__modal"></div>
-//         </div>
-//         <span class="close__modal" onclick=closeModal()><i class="fas fa-times"></i></span>
-//       </div>
-//       <div class="modal_body">
-//         <form action="index.html" method="get" id="submit">
-//           <div class="formData" id="firstname">
-//             <label>Prénom</label>
-//             <input class="text__control" data-error="" data-error-visible="false" type="text" name="first" id="first" />
-//           </div>
-//           <div class="formData" id="lastname">
-//             <label>Nom</label>
-//             <input class="text__control" data-error="" data-error-visible="false" type="text" name="last" id="last" />
-//           </div>
-//           <div class="formData" id="email-data">
-//             <label>Email</label>
-//             <input class="text__control" data-error="" data-error-visible="false" type="email" name="email"
-//               id="email" />
-//           </div>
-//           <div class="formData" id="message-data">
-//             <label>Votre message</label>
-//             <input class="text__control" data-error="" data-error-visible="false" type="text" name="message"
-//               id="message" />
-//           </div>
-//           <input id="btn" class="submit__btn" type="submit" value="Envoyer">
-//         </form>
-//         <span id="confirmation__msg"></span>
-//       </div>
-//     </div>
-//   </div>
-// 	`
-
-// formSection.innerHTML = modalScheme
-
-// return formSection
-
 }
 
 function closeModal() {

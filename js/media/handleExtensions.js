@@ -1,8 +1,17 @@
 // function handleExtensions(media) {
 // 	// Media container
 
-// 	const mediaSection = document.querySelector('.media__box');
-// 	console.log(mediaSection);
+// 	let mediaSection = document.querySelectorAll('.media__box');
+// 	// for (let elt of mediaSection){
+// 	// 	if(elt.children[0].src.endsWith('jpg')){
+// 	// 		elt.children[1].remove
+// 	// 	}
+// 	// 	else if (elt.children[1].src.endsWith('mp4')){
+// 	// 	elt.children[0].remove()
+// 	// 	}
+	
+// 	// }
+
 
 // 	//EXTRACTING  PHTOOGRAPHER'S ID VALUE FROM HTML PATH
 // 	const url = window.location.search;
@@ -12,31 +21,25 @@
 
 // 	const mediaList = media.filter((item) => item.photographerId === idValue);
 
-// 	mediaList.forEach((item) => {
-// 		if (item.image) {
+// 	mediaList.forEach(item  => {
 
-// 			const imageData=
+// 		const mediaSection = document.querySelectorAll('.media__box');
+
+
+// 		if (item.image){
+// 			// const imageData = document.createElement('div')
+// 			const data = `
+// 			<img src="${item.image}" />
 // 			`
 
-// 			<img src ="${item.image}"  />
+		
 			
-			
-// 			`
-
-// 			mediaSection.innerHTML = imageData
-
-
-// 		} else if (item.video) {
-
-// 			const videoData = 
-
-// 			`
-// 			<video src ="${item.video}"  controls />
-			
-			
-// 			`
-
-// 			mediaSection.innerHTML = videoData
 // 		}
-// 	});
+// 		else if (item.video){
+// 			console.log('we have :', item.video)
+// 		}
+// 	})
+
+
+	
 // }

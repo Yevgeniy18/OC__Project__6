@@ -6,7 +6,9 @@ async function getMedia() {
 async function displayMedia(photographers, media) {
 	const photographDetails = photographDetail(photographers, media);
 	photographDetails.getPhotographDetails();
-	photographDetails.getPhotographMedia(media);
+
+	photographDetails.getPhotographMedia();
+	photographDetails.getPhotographMediaLightBox();
 
 	//GETTING NUMBER OF LIKES AND PRICE PER MEDIA
 	const Price = getExtraInfo(photographers, media);
@@ -20,13 +22,8 @@ async function displayMedia(photographers, media) {
 	const phDataModal = getModalData(photographers);
 	phDataModal.getPhName();
 
-	// MEDIA 
-	// const Media = handleExtensions(media)
-
 	// DROPDOWN MENU FOR FILTER PURPOSE
-	const DropDown = dropDown()
-
-
+	const DropDown = dropDown();
 }
 
 async function run() {
