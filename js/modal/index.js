@@ -1,8 +1,8 @@
 // OPENING AND CLOSING CONTACT FORM
 
 function handleModal() {
-	const formSection = document.querySelector('.modal')
-	console.log(formSection)
+	const formSection = document.querySelector('.modal');
+	console.log(formSection);
 	const modal = document.querySelector('.bground__modal');
 	const content = document.querySelector('.content__modal');
 
@@ -11,16 +11,10 @@ function handleModal() {
 	content.removeAttribute('closed-modal');
 	modal.setAttribute('open-bg', true);
 	modal.removeAttribute('remove-bground');
-
 }
 
 function closeModal() {
 	const modal = document.querySelector('.bground__modal');
-
-	// const content = document.querySelector('.content__modal');
-
-	// content.setAttribute('closed-modal', true);
-	// content.removeAttribute('open-modal');
 	modal.style.display = 'none';
 }
 
@@ -67,16 +61,17 @@ const checkFirstName = () => {
 
 	const firstNameValue = firstName.value.trim();
 
-	if (!isRequired(firstNameValue)) {
-		firstName.setAttribute('data-error-visible', true)
-	
-	
-	} else if (!isBetween(firstNameValue.length, min, max)) {
-		firstName.setAttribute('data-error-visible', true)
-	
+	let firstNameEl = document.getElementById('firstname');
 
+	if (!isRequired(firstNameValue)) {
+		firstNameEl.setAttribute('data-error', 'Ce champ ne peut pas etre vide !');
+		firstNameEl.setAttribute('data-error-visible', true);
+	} else if (!isBetween(firstNameValue.length, min, max)) {
+		firstNameEl.setAttribute('data-error', 'ce champ doit contenir minimum 2 characteres !');
+		firstNameEl.setAttribute('data-error-visible', true);
 	} else {
-		firstName.setAttribute('data-error-visible', false)
+		firstNameEl.removeAttribute('data-error');
+		firstNameEl.setAttribute('data-error-visible', false);
 
 		valid = true;
 	}
@@ -90,18 +85,17 @@ const checkLastName = () => {
 		max = 25;
 
 	const lastNameValue = lastName.value.trim();
+	let lastNameEl = document.getElementById('lastname');
 
 	if (!isRequired(lastNameValue)) {
-		lastName.setAttribute('data-error-visible', true)
-
-	
+		lastNameEl.setAttribute('data-error', 'Ce champ ne peut pas etre vide !');
+		lastNameEl.setAttribute('data-error-visible', true);
 	} else if (!isBetween(lastNameValue.length, min, max)) {
-		lastName.setAttribute('data-error-visible', true)
-
-	
+		lastNameEl.setAttribute('data-error', 'ce champ doit contenir minimum 2 characteres !');
+		lastNameEl.setAttribute('data-error-visible', true);
 	} else {
-
-		lastName.setAttribute('data-error-visible', false)
+		lastNameEl.removeAttribute('data-error');
+		lastNameEl.setAttribute('data-error-visible', false);
 
 		valid = true;
 	}
@@ -114,15 +108,18 @@ const checkEmail = () => {
 
 	const emailValue = emailField.value.trim();
 
+	let emailEl = document.getElementById('email-data');
+
 	if (!isRequired(emailValue)) {
-		emailField.setAttribute('data-error-visible', true)
-
+		emailEl.setAttribute('data-error', 'Ce champ ne peut pas etre vide !');
+		emailEl.setAttribute('data-error-visible', true);
 	} else if (!isEmailValid(emailValue)) {
-		emailField.setAttribute('data-error-visible', true)
-
+		emailEl.setAttribute('data-error', 'Veuillez entrer un format correct!');
+		emailEl.setAttribute('data-error-visible', true);
 	} else {
-		emailField.setAttribute('data-error-visible', false)
-		
+		emailEl.removeAttribute('data-error');
+		emailEl.setAttribute('data-error-visible', false);
+
 		valid = true;
 	}
 
@@ -130,27 +127,29 @@ const checkEmail = () => {
 };
 
 const checkText = () => {
-	let valid = false
-	const textValue =textField.value.trim()
+	let valid = false;
+	const textValue = textField.value.trim();
+	let messageEl = document.getElementById('message-data');
 
-	if (!isRequired(textValue)){
-		textField.setAttribute('data-error-visible', true)
+	if (!isRequired(textValue)) {
+		messageEl.setAttribute('data-error', 'Ce champ ne peut pas etre vide !');
+		messageEl.setAttribute('data-error-visible', true);
+	} else {
+		messageEl.removeAttribute('data-error');
+		messageEl.setAttribute('data-error-visible', false);
 
-	} else{
-		textField.setAttribute('data-error-visible', false)
-
-		valid = true
+		valid = true;
 	}
-	return valid
-}
+	return valid;
+};
 
 submitBtn.addEventListener('submit', function(e) {
 	e.preventDefault();
 
 	let firstNameValid = checkFirstName(),
 		lastNameValid = checkLastName(),
-		emailValid = checkEmail(), 
-		textValid = checkText()
+		emailValid = checkEmail(),
+		textValid = checkText();
 
 	let isFormValid = firstNameValid && lastNameValid && emailValid && textValid;
 
@@ -164,35 +163,29 @@ submitBtn.addEventListener('submit', function(e) {
 	}
 });
 
-
 // PROVIDING INSTANT FEEDBZCK ON ERRORS
 
-form.addEventListener("input", function(e){
-
-	switch(e.target.name){
-		case "first":
-			checkFirstName()
-			break
-		case "last":
-			checkLastName()
-			break
-		case "email":
-			checkEmail()
-			break
-		case "message":
-			checkText()
-			break
-
-
+form.addEventListener('input', function(e) {
+	switch (e.target.name) {
+		case 'first':
+			checkFirstName();
+			break;
+		case 'last':
+			checkLastName();
+			break;
+		case 'email':
+			checkEmail();
+			break;
+		case 'message':
+			checkText();
+			break;
 	}
-})
-
-
+});
 
 // DISABLING BTN WHILE FIELFS NOT FILLED
 
 let btnSubmit = document.getElementById('btn');
-let inputs = document.querySelectorAll(".text__control");
+let inputs = document.querySelectorAll('.text__control');
 
 const disableBtn = () => {
 	for (let elt of inputs) {

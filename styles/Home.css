@@ -38,7 +38,7 @@ body {
 .photograph__list__section {
 display: flex;
 flex-wrap: wrap;  
-justify-content: space-between;
+justify-content: space-evenly;
 align-items: center;
 margin-top: 1rem;
 width: 100%;
@@ -81,7 +81,7 @@ width: 100%;
 .ph__container__img{
   width: 250px;
   height: 250px;
-  border: 1px solid black;
+border: none;
   margin-bottom: 1rem;
   border-radius: 50%;
 }
@@ -93,11 +93,11 @@ width: 100%;
   border-radius: 50%;
   box-shadow: 0 0 10px 5px rgb(173, 168, 168);
   cursor: pointer;
-  transition: transform 220ms ease-in-out;
+  transition: all 220ms;
 }
 
 .ph__container__img img:hover{
-  transform: scale(1.10);
+  opacity: 0.6;
 }
 
 

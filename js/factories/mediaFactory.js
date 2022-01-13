@@ -7,7 +7,7 @@ function mediaFactory(media) {
 
 		const mediaSection = `
         <div id="test-${id}" onclick="lightBoxOpen(id,'${title}')" class="media__box">
-		<img class="media" src="${image}"/>
+		<img class="imageMedia" src="${image}"/>
 		<h3 class="media__title">${title}</h3>
         </div>
         <div class ="media__pricing"> 	
@@ -29,7 +29,7 @@ function mediaFactory(media) {
 
 		const mediaSection = `
         <div id="test-${id}" onclick="lightBoxOpen(id,'${title}')" class="media__box">
-		<video class="media" src="${video}" />
+		<video class="videoMedia" src="${video}" controls />
 		<h3 class="media__title">${title}</h3>
         </div>
         <div class="media__pricing"> 	
@@ -52,6 +52,7 @@ function mediaFactory(media) {
 		`
 		<div id="lightbox-${id}" class="lightbox__item__container" onclick="lightBoxOpen(id,'${title}')">
 		<img src="${image}" />
+		<h3 class="media__title">${title}</h3>
 		</div>
 		`;
 
@@ -66,6 +67,7 @@ function mediaFactory(media) {
 		`
 		<div id="lightbox-${id}" class="lightbox__item__container" onclick="lightBoxOpen(id,'${title}')">
 		<video src="${video}" />
+		<h3 class="media__title">${title}</h3>
 		</div>
 		`;
 

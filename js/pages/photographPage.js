@@ -6,7 +6,6 @@ async function getMedia() {
 async function displayMedia(photographers, media) {
 	const photographDetails = photographDetail(photographers, media);
 	photographDetails.getPhotographDetails();
-
 	photographDetails.getPhotographMedia();
 	photographDetails.getPhotographMediaLightBox();
 
@@ -23,7 +22,7 @@ async function displayMedia(photographers, media) {
 	phDataModal.getPhName();
 
 	// DROPDOWN MENU FOR FILTER PURPOSE
-	const DropDown = dropDown();
+	dropDown();
 }
 
 async function run() {

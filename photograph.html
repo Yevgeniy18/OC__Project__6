@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./public/styles/Detailed.css">
+  <link rel="stylesheet" href="./styles/Detailed.css">
   <title>Photograph</title>
 </head>
 
@@ -29,33 +29,26 @@
     <label>Trier par </label>
 
 
-    <!-- <div class="select" style="width: 200px">
-      <select class="filter__options">
-        <option value="all">Tous</option>
-        <option value="likes">Popularité</option>
-        <option value="title">Titre</option>
-        <span class="focus"></span>
-      </select>
-   </div> -->
 
 
-  <div class="select__wrapper">
-    <div class="select">
-      <div class="select__trigger"> <span>Tous</span>
-        <div class="arrow"></div>
 
+    <div class="select__wrapper">
+      <div class="select">
+        <div class="select__trigger"> <span>Tous</span>
+          <div class="arrow"></div>
+
+        </div>
+
+        <div class="custom__options">
+          <span class="custom__option selected" id="all" data-value="all" name="all">Tous</span>
+          <span class="custom__option" id="likes" data-value="likes" name="likes">Popularité</span>
+          <span class="custom__option" id="title" data-value="title" name="title">Titre</span>
+        </div>
       </div>
 
-      <div class="custom__options">
-        <span class="custom__option selected" id ="all" data-value="all" name="all">Tous</span>
-        <span class="custom__option"  id="likes" data-value="likes" name="likes">Popularité</span>
-        <span class="custom__option" id="title" data-value="title" name="title">Titre</span>
-      </div>
     </div>
 
   </div>
-
-</div>
 
   <!--  -->
 
@@ -65,7 +58,7 @@
 
   <!-- Lightbox Section -->
   <section class="lightbox">
-    <div class="lightbox__container">
+    <div class="lightbox__container" id="lightbox__container">
     </div>
     <div class="lightbox__gallery"></div>
   </section>
@@ -83,9 +76,12 @@
           <h2>
             Contactez Moi
           </h2>
-          <div class="ph__name__modal"></div>
+
+          <span class="close__modal" onclick=closeModal()>x</span>
+   
         </div>
-        <span class="close__modal" onclick=closeModal()><i class="fas fa-times"></i></span>
+   
+        <div class="ph__name__modal"></div>
       </div>
 
       <div class="modal_body">
@@ -94,7 +90,7 @@
 
           <div class="formData" id="firstname">
             <label>Prénom</label>
-            <input class="text__control" data-error="" data-error-visible="false" type="text" name="first" id="first" />
+            <input class="text__control"  data-error="" data-error-visible="false" type="text" name="first" id="first" />
           </div>
 
           <div class="formData" id="lastname">
@@ -116,8 +112,9 @@
 
           <input id="btn" class="submit__btn" type="submit" value="Envoyer">
         </form>
-        <span id="confirmation__msg"></span>
+     
       </div>
+      <span id="confirmation__msg"></span>
 
     </div>
 
@@ -130,15 +127,12 @@
 
   <!-- JS SCRIPTS -->
 
-
   <!-- API -->
   <script src="./js/api/photographersApi.js"></script>
 
   <!-- FACTORIES -->
   <script src="./js/factories/mediaFactory.js"></script>
   <script src="./js/factories/photographDetail.js"></script>
-
-
 
   <!-- Helpers -->
   <script src="./js/helpers/likes/handleLikes.js"></script>
@@ -152,13 +146,12 @@
   <script src="./js/helpers/dropdown/dropDownMenu.js"></script>
 
   <!-- Media -->
-<script src="./js/media/handleExtensions.js"></script>
+  <script src="./js/media/handleExtensions.js"></script>
   <!-- Lightbox -->
 
   <script src="./js/sort/filterMedia.js"></script>
   <script src="./js/lightbox/lightBoxOpen.js"></script>
-  <script src="./js/lightbox/lightBoxClosed.js"></script>
-
+  
 
   <!-- RUN APP -->
   <script src="./js/pages/photographPage.js"></script>

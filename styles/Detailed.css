@@ -361,7 +361,7 @@ label {
 	display: flex;
 	margin: 5% auto;
 	align-items: center;
-	height: 80vh;
+	height: 85vh;
 	width: 100%;
 	max-height: 100vh;
 	max-width: 600px;
@@ -412,6 +412,7 @@ label {
 .close__modal {
 	color: #fff;
 	font-size: 30px;
+	cursor: pointer;
 }
 
 .modal_body {
@@ -432,6 +433,7 @@ form label {
 
 .formData {
 	display: inline;
+	
 }
 
 .text__control {
@@ -443,6 +445,7 @@ form label {
 	border-radius: 8px;
 	margin-bottom: 10px;
 	font-size: 20px;
+	margin-bottom: 1rem;
 }
 
 #message {
@@ -454,23 +457,26 @@ form label {
 .modal__header {
 	width: 85%;
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	flex-direction: column;
 	padding: 15px 8%;
 	padding-top: 2rem;
 }
 
 .modal__header h2 {
 	font-size: 30px;
-	width: 220px;
+
 }
 
 .contact__ph {
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: space-between;
+
 }
 .contact__ph h2 {
+	margin: 0;
+}
+
+.ph__name__modal h2{
 	margin: 0;
 }
 
@@ -484,9 +490,47 @@ form label {
 	cursor: pointer;
 }
 
-.formData[data-error-visible="true"].text__control {
-	border: 2px solid red;
+#confirmation__msg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: -5;
+	font-size: 1.8rem;
+
 }
+
+
+.formData[data-error]::after{
+	content: attr(data-error);
+	font-size: 0.8em;
+	color: #161415;
+	display: block;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	text-align: right;
+	line-height: 0.3;
+	opacity: 0;
+	transition: 0.3s;
+}
+
+.formData[data-error-visible="true"]::after{
+	opacity: 1;
+}
+
+.formData[data-error-visible="true"] .text__control {
+	border: 2px solid #e54858;
+	 background-color:  rgb(115 8 8 / 81%);
+  }
+
+input[data-error]::after {
+	content: attr(data-error);
+font-size: 20px;
+	color: rgb(14, 13, 13);
+  }
+
 
 /***Lighbox***/
 
@@ -579,13 +623,13 @@ form label {
 	object-position: center 25%;
 	object-fit: cover;
 	height: 100%;
-	width: 80%;
+	width: 60%;
 }
 
 .lightbox__media video {
 	object-fit: cover;
 	height: 100%;
-	width: 80%;
+	width: 60%;
 }
 
 .lightbox__video {

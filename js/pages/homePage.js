@@ -1,7 +1,6 @@
 async function getPhotographers() {
 	// RETRIEVED DATA FROM API
 	const photographers = getPhotographerApi();
-
 	// PHOTOGRAPH LIST
 	return photographers;
 }
