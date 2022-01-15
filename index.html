@@ -12,23 +12,16 @@
 </head>
 
 <body>
-  <header>
+  <header class="header" role="banner">
     <a href="index.html">
       <div class="logo">
-        <h1>Fish<i class="fas fa-camera"></i>eye</h1>
+        <img src="./assets/logo/logo.png" alt="">
       </div>
     </a>
 
-    <form class="tags__section" action="#" method="POST">
-      <option value="portrait">#portrait</option>
-      <option value="events">#events</option>
-      <option value="travel">#travel</option>
-      <option value="animals">#animals</option>
-      <option value="sports">#sports</option>
-      <option value="architecture">#architecture</option>
-      <option value="fashion">#fashion</option>
-      <option value="art">#art</option>
-    </form>
+    <div class="tags__area"></div>
+
+
 
     <h2>Nos Photographes</h2>
   </header>
@@ -38,14 +31,15 @@
   </main>
 
   <!-- Factories-->
-  <script src="./js/filter/filterPhotograph.js"></script>
-  <script src="./js/factories/photograph.js"></script>
+  <script src="./js/photographList/filter/filterPhotograph.js"></script>
+  <script src="./js/photographList/builder/photograph.js"></script>
 
   <!-- API -->
   <script src="./js/api/photographersApi.js"></script>
 
   <!-- App -->
-  <script src="./js/pages/homePage.js"></script>
+  <!-- <script src="./js/pages/homePage.js"></script> -->
+  <script src="./js/photographList/pages/homePage.js"></script>
 </body>
 
 </html>

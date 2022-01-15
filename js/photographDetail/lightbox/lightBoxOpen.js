@@ -3,8 +3,6 @@ function lightBoxOpen(id, title) {
 	const mediaWrapper = document.querySelector('.lightbox__container');
 	const media = document.getElementById(id);
 
-	// LIGHTBOX OPENING? POPULATING IT WITH BASIC HTML ELEMENTS
-
 	lightBoxSection.style.display = 'block';
 
 	const lightBoxDetails = `
@@ -18,10 +16,6 @@ function lightBoxOpen(id, title) {
 	mediaWrapper.innerHTML = lightBoxDetails;
 	lightBoxSection.appendChild(mediaWrapper);
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	// CHECKING WHETHER MEDIA EXTENSIONS END WITH JPG OR MP4 FORMAT, APPENING THE LATTER INTO THE HTML ABOVE
-
 	if (media.children[0].src.endsWith('jpg')) {
 		let mediaArea = document.getElementById('lightbox__media');
 
@@ -32,16 +26,14 @@ function lightBoxOpen(id, title) {
 	} else {
 		let mediaArea = document.getElementById('lightbox__media');
 		const videoExt = `
-		<video class="lightboxMedia" src="${media.children[0].src}" controls />
+		<video class="lightboxMedia"  controls >
+		<source src=${media.children[0].children[0].src} type="video/mp4" /> 
+		</video>
 		`;
 		mediaArea.innerHTML = videoExt;
 	}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	// NEXT AND PREVIOUS FUNCTIONALITIES, CURRENT MEDIA IN THE LIGHTBOX DISPLAY
-
-	const mediaElts = document.querySelectorAll("[id*='test-']");
+	const mediaElts = document.querySelectorAll("[id*='media-']");
 	const lightBoxElts = document.querySelectorAll("[id*='lightbox-']");
 	let lightBox = document.getElementById('lightbox__media');
 	let slideId = document.getElementById(id);
@@ -49,68 +41,54 @@ function lightBoxOpen(id, title) {
 	let prev = document.querySelector('.lightbox__prev');
 	let mediaTitle = document.querySelector('.lightbox__title');
 
-	// Next and previous media
+	// Next and previous navigation
 
 	for (let currentValue = 0; currentValue < mediaElts.length; currentValue++) {
 		if (mediaElts[currentValue] === slideId) {
-			let lightboxNav = document.getElementById('lightbox__container');
-			lightboxNav.addEventListener('keydown', keyHandler);
-
-			function keyHandler(e) {
-				if (e.keyCode === 39) {
-					e.preventDefault();
-					console.log('next');
-				}
-			}
-
 			next.addEventListener('click', nextMedia);
 			function nextMedia() {
+				lightBox.innerHTML = '';
 				currentValue = currentValue + 1;
 				currentValue = currentValue % mediaElts.length;
+				console.log(currentValue);
 
 				if (mediaElts[currentValue].children[0].src.endsWith('jpg')) {
 					let imgSrc = mediaElts[currentValue].children[0].src;
 					let titleData = mediaElts[currentValue].children[1];
 
-					lightBox.innerHTML = '';
-
 					const imgData = `
-					<img src=${imgSrc} />	
+					<img src=${imgSrc} />
 					`;
 
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = mediaElts[currentValue].children[0].src;
-					let titleData = mediaElts[currentValue].children[0].textContent;
-					lightBox.innerHTML = '';
+					let vidSrc = mediaElts[currentValue].children[0].children[0].src;
+					let titleData = mediaElts[currentValue].children[1];
 
 					const videoData = `
-					<video src=${vidSrc} controls />	
+					<video src=${vidSrc} controls />
 					`;
 					lightBox.innerHTML = videoData;
-					mediaTitle.textContent = titleData;
+					mediaTitle.textContent = titleData.textContent;
 				}
 			}
-		}
-	}
 
-	for (let currentValue = 0; currentValue < mediaElts.length; currentValue++) {
-		if (mediaElts[currentValue] === slideId) {
 			prev.addEventListener('click', prevMedia);
 
 			function prevMedia() {
+				lightBox.innerHTML = '';
+
 				if (currentValue === 0) {
 					currentValue = mediaElts.length;
 				}
 				currentValue = currentValue - 1;
 				currentValue = currentValue % mediaElts.length;
+				console.log(currentValue);
 
 				if (mediaElts[currentValue].children[0].src.endsWith('jpg')) {
 					let imgSrc = mediaElts[currentValue].children[0].src;
 					let titleData = mediaElts[currentValue].children[1];
-
-					lightBox.innerHTML = '';
 
 					const imgData = `
 					<img src=${imgSrc} />	
@@ -119,16 +97,14 @@ function lightBoxOpen(id, title) {
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = mediaElts[currentValue].children[0].src;
-					let titleData = mediaElts[currentValue].children[0].textContent;
-
-					lightBox.innerHTML = '';
+					let vidSrc = mediaElts[currentValue].children[0].children[0].src;
+					let titleData = mediaElts[currentValue].children[1];
 
 					const videoData = `
 					<video src=${vidSrc} controls />	
 					`;
 					lightBox.innerHTML = videoData;
-					mediaTitle.textContent = titleData;
+					mediaTitle.textContent = titleData.textContent;
 				}
 			}
 		}
@@ -138,25 +114,15 @@ function lightBoxOpen(id, title) {
 
 	for (let currentValue = 0; currentValue < lightBoxElts.length; currentValue++) {
 		if (lightBoxElts[currentValue] === slideId) {
-			let lightboxNav = document.getElementById('lightbox__container');
-			lightboxNav.addEventListener('keydown', keyHandler);
-
-			function keyHandler(e) {
-				if (e.keyCode === 39) {
-					e.preventDefault();
-					console.log('next');
-				}
-			}
-
 			next.addEventListener('click', nextMedia);
 			function nextMedia() {
+				lightBox.innerHTML = '';
 				currentValue = currentValue + 1;
 				currentValue = currentValue % lightBoxElts.length;
 
 				if (lightBoxElts[currentValue].children[0].src.endsWith('jpg')) {
 					let imgSrc = lightBoxElts[currentValue].children[0].src;
 					let titleData = lightBoxElts[currentValue].children[1];
-					lightBox.innerHTML = '';
 
 					const imgData = `
 						<img src=${imgSrc} />	
@@ -165,25 +131,23 @@ function lightBoxOpen(id, title) {
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = lightBoxElts[currentValue].children[0].src;
-					let titleData = mediaElts[currentValue].children[0].textContent;
 					lightBox.innerHTML = '';
+
+					let vidSrc = lightBoxElts[currentValue].children[0].children[0].src;
+					let titleData = mediaElts[currentValue].children[1];
 
 					const videoData = `
 						<video src=${vidSrc} controls />	
 						`;
 					lightBox.innerHTML = videoData;
-					mediaTitle.textContent = titleData;
+					mediaTitle.textContent = titleData.textContent;
 				}
 			}
-		}
-	}
 
-	for (let currentValue = 0; currentValue < lightBoxElts.length; currentValue++) {
-		if (lightBoxElts[currentValue] === slideId) {
 			prev.addEventListener('click', prevMedia);
 
 			function prevMedia() {
+				lightBox.innerHTML = '';
 				if (currentValue === 0) {
 					currentValue = lightBoxElts.length;
 				}
@@ -193,7 +157,6 @@ function lightBoxOpen(id, title) {
 				if (lightBoxElts[currentValue].children[0].src.endsWith('jpg')) {
 					let imgSrc = lightBoxElts[currentValue].children[0].src;
 					let titleData = lightBoxElts[currentValue].children[1];
-					lightBox.innerHTML = '';
 
 					const imgData = `
 						<img src=${imgSrc} />	
@@ -202,22 +165,21 @@ function lightBoxOpen(id, title) {
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = lightBoxElts[currentValue].children[0].src;
-					let titleData = mediaElts[currentValue].children[0].textContent;
-					lightBox.innerHTML = '';
+					let vidSrc = lightBoxElts[currentValue].children[0].children[0].src;
+					let titleData = mediaElts[currentValue].children[1];
 
 					const videoData = `
 						<video src=${vidSrc} controls />	
 						`;
 					lightBox.innerHTML = videoData;
-					mediaTitle.textContent = titleData;
+					mediaTitle.textContent = titleData.textContent;
 				}
 			}
 		}
 	}
 }
 
-// 	CLOSING LIGHTBOX
+// 	Closing Lightbox Element
 
 function lightBoxClosed() {
 	let lightboxSection = document.querySelector('.lightbox');

@@ -6,10 +6,17 @@ a {
 header {
 	display: flex;
 	align-items: center;
+	height: 8vh;
 }
 
 .logo {
-	color: #901c1c;
+	height: 50px;
+	width: 250px;
+}
+
+.logo img {
+	object-fit: contain;
+	height: 100%;
 }
 
 body {
@@ -103,7 +110,6 @@ body {
 	color: black;
 	display: flex;
 	align-items: center;
-	flex-direction: row-reverse;
 	justify-content: space-evenly;
 	font-size: 20px;
 }

@@ -8,7 +8,8 @@
 		"tags": ["portrait", "events", "travel", "animals"],
 		"tagline": "Voir le beau dans le quotidien",
 		"price": 400,
-		"portrait": "assets/Mimi/Portrait_Nora.jpg"
+		"portrait": "assets/Mimi/Portrait_Nora.jpg",
+		"alt": "Mimi Keel portrait"
 	  },
 	  {
 		"name": "Ellie-Rose Wilkens",
@@ -18,7 +19,8 @@
 		"tags": ["sports", "architecture"],
 		"tagline": "Capturer des compositions complexes",
 		"price": 250,
-		"portrait": "assets/Ellie/horseshoe.jpg"
+		"portrait": "assets/Ellie/horseshoe.jpg",
+		"alt": "Ellie-Rose Wilkens portrait"
 	  },
 	  {
 		"name": "Tracy Galindo",
@@ -28,7 +30,8 @@
 		"tags": ["art", "fashion", "events"],
 		"tagline": "Photographe freelance",
 		"price": 500,
-		"portrait": "assets//Tracy/Fashion_Urban_Jungle.jpg"
+		"portrait": "assets//Tracy/Fashion_Urban_Jungle.jpg",
+		"alt": "Tracy Galindo portrait"
 	  },
 	  {
 		"name": "Nabeel Bradford",
@@ -38,7 +41,8 @@
 		"tags": ["travel", "portrait"],
 		"tagline": "Toujours aller de l'avant",
 		"price": 350,
-		"portrait": "assets/Nabeel/Travel_Outdoor_Baths.jpg"
+		"portrait": "assets/Nabeel/Travel_Outdoor_Baths.jpg",
+		"alt": "Nabeel Bradford portrait"
 	  },  
 	  {
 		"name": "Rhode Dubois",
@@ -48,7 +52,8 @@
 		"tags": ["sport", "fashion", "events", "animals"],
 		"tagline": "Je crée des souvenirs",
 		"price": 275,
-		"portrait": "assets/Rhode/Fashion_Melody_Red_on_Stripes.jpg"
+		"portrait": "assets/Rhode/Fashion_Melody_Red_on_Stripes.jpg",
+		"alt": "Rhode Dubois portrait"
 	  },
 	  {
 		"name": "Marcel Nikolic",
@@ -58,13 +63,15 @@
 		"tags": ["travel", "architecture"],
 		"tagline": "Toujours à la recherche de LA photo",
 		"price": 300,
-		"portrait": "assets/Marcel/Travel_Tower.jpg"
+		"portrait": "assets/Marcel/Travel_Tower.jpg",
+		"alt": "Marcel Nikolic portrait"
 	  }
 	],
 	"media": [
 	  {
 		"id": 342550,
 		"photographerId": 82,
+		"alt": "Fashion Yellow Beach",
 		"title": "Fashion Yellow Beach",
 		"image": "assets/Tracy/Fashion_Yellow_Beach.jpg",
 		"tags": ["fashion"],
@@ -75,6 +82,7 @@
 	  {
 		"id": 8520927,
 		"photographerId": 82,
+		"alt": "Fashion Urban Jungle",
 		"title": "Fashion Urban Jungle",
 		"image": "assets/Tracy/Fashion_Urban_Jungle.jpg",
 		"tags": ["fashion"],
