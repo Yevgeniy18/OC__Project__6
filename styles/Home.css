@@ -9,6 +9,21 @@ a {
   text-decoration: none;
 }
 
+a:focus{
+  box-shadow: 0 5px 6px gray;
+}
+
+a{
+  outline: none;
+}
+
+#logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 header {
   height: 8vh;
   display: flex;
@@ -86,6 +101,23 @@ width: 100%;
   margin: 1rem;
   padding: 1rem;
 
+}
+
+.ph__card a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+
+}
+
+.ph__name a:focus{
+  box-shadow: 0 4px 6px gray;
+
+}
+
+.ph__name{
+  text-align: center;
 }
 
 .ph__container__img{

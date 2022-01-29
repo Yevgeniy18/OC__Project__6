@@ -10,6 +10,8 @@ async function displayData(photographers) {
 	// Tags filter
 	new filterPhotograph(photographers).render();
 
+	keyBoardHandler()
+
 	// Photographers list
 	photographers.forEach((photographer) => {
 		const photographerModel = new photographerFactory(photographer);

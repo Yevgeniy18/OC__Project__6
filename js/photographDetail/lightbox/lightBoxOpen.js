@@ -1,15 +1,17 @@
 function lightBoxOpen(id, title) {
 	const lightBoxSection = document.querySelector('.lightbox');
 	const mediaWrapper = document.querySelector('.lightbox__container');
+
 	const media = document.getElementById(id);
 
 	lightBoxSection.style.display = 'block';
+	lightBoxSection.setAttribute('aria-hidden', false);
 
 	const lightBoxDetails = `
     <button class="lightbox__closed" onclick="lightBoxClosed()">x</button>
-	<button class="lightbox__prev" aria-controls="media-items" >❮</button>
+	<button class="lightbox__prev" aria-controls="media-items">❮</button>
     <div id="lightbox__media" class="lightbox__media"></div>
-	<h3 class="lightbox__title"> ${title} </h3>
+	<h3 class="lightbox__title">${title} </h3>
 	<button class="lightbox__next" aria-controls="media_items">❯</button>
     `;
 
@@ -50,7 +52,6 @@ function lightBoxOpen(id, title) {
 				lightBox.innerHTML = '';
 				currentValue = currentValue + 1;
 				currentValue = currentValue % mediaElts.length;
-				console.log(currentValue);
 
 				if (mediaElts[currentValue].children[0].src.endsWith('jpg')) {
 					let imgSrc = mediaElts[currentValue].children[0].src;
@@ -84,7 +85,6 @@ function lightBoxOpen(id, title) {
 				}
 				currentValue = currentValue - 1;
 				currentValue = currentValue % mediaElts.length;
-				console.log(currentValue);
 
 				if (mediaElts[currentValue].children[0].src.endsWith('jpg')) {
 					let imgSrc = mediaElts[currentValue].children[0].src;
@@ -103,10 +103,24 @@ function lightBoxOpen(id, title) {
 					const videoData = `
 					<video src=${vidSrc} controls />	
 					`;
-					lightBox.innerHTML = videoData;
+					lightBox.innerHTML = videoData;	
 					mediaTitle.textContent = titleData.textContent;
 				}
 			}
+
+			document.onkeydown = function(e) {
+				switch (e.keyCode) {
+					case 39:
+						nextMedia();
+						break;
+					case 37:
+						prevMedia();
+						break;
+					case 27:
+						lightBoxClosed();
+						break;
+				}
+			};
 		}
 	}
 
@@ -133,7 +147,8 @@ function lightBoxOpen(id, title) {
 				} else {
 					lightBox.innerHTML = '';
 
-					let vidSrc = lightBoxElts[currentValue].children[0].children[0].src;
+					let vidSrc = lightBoxElts[currentValue].children[0].src;
+
 					let titleData = mediaElts[currentValue].children[1];
 
 					const videoData = `
@@ -141,6 +156,12 @@ function lightBoxOpen(id, title) {
 						`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
+				}
+
+				// Highliting the image when being selected
+
+				if (lightBoxElts[currentValue]) {
+					lightBoxElts[currentValue].classList.add('gallery__selected');
 				}
 			}
 
@@ -165,7 +186,7 @@ function lightBoxOpen(id, title) {
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = lightBoxElts[currentValue].children[0].children[0].src;
+					let vidSrc = lightBoxElts[currentValue].children[0].src;
 					let titleData = mediaElts[currentValue].children[1];
 
 					const videoData = `
@@ -175,6 +196,19 @@ function lightBoxOpen(id, title) {
 					mediaTitle.textContent = titleData.textContent;
 				}
 			}
+			document.onkeydown = function(e) {
+				switch (e.keyCode) {
+					case 39:
+						nextMedia();
+						break;
+					case 37:
+						prevMedia();
+						break;
+					case 27:
+						lightBoxClosed();
+						break;
+				}
+			};
 		}
 	}
 }

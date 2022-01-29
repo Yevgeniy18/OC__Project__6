@@ -15,13 +15,13 @@ class photographerFactory {
 		const photographCard = document.createElement('article');
 		photographCard.classList.add('ph__card');
 		const photographer = `
-    <a href="photograph.html?id=${this.id}">
+    <a tabindex="-1" href="photograph.html?id=${this.id}">
     <div class="ph__container__img">
-    <img src="${this.portrait}"/>
+    <img src="${this.portrait}" alt=${this.name}/>
     </div>
-    </a>
 
-    <h1 class="ph__name">${name}</h1>
+    <h1 class="ph__name">${this.name}</h1>
+	</a>
     <div class="ph__location">
     <h3>${this.city}, ${this.country}</h3>
     </div>
@@ -34,6 +34,7 @@ class photographerFactory {
 		})
 		.join(' ')}
     </div>
+
     `;
 		photographCard.innerHTML = photographer;
 		return photographCard;

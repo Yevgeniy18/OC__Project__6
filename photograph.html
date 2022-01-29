@@ -13,10 +13,10 @@
 
 <body>
   <header>
-    <a href="index.html">
-      <div class="logo">
-        <img src="./assets/logo/logo.png" alt="">
-      </div>
+    <a href="index.html" class="logo">
+
+      <img src="./assets/logo/logo.png" alt="logo">
+
     </a>
   </header>
 
@@ -25,25 +25,19 @@
 
   <!-- FILTER MEDIA FORM -->
   <div class="form__media">
-
     <label>Trier par </label>
-
-    <div class="select__wrapper">
-      <div class="select">
-        <div class="select__trigger"> <span>Tous</span>
+    <div  class="select__wrapper">
+      <div   class="select">
+        <div  tabindex="0" class="select__trigger"> <span>Tous</span>
           <div class="arrow"></div>
-
         </div>
-
-        <div class="custom__options">
-          <span class="custom__option selected" id="all" data-value="all">Tous</span>
-          <span class="custom__option" id="likes" data-value="likes">Popularité</span>
-          <span class="custom__option" id="title" data-value="title">Titre</span>
+        <div tabindex="0" class="custom__options">
+          <span class="custom__option selected" id="all" data-value="all" tabindex="-1">Tous</span>
+          <span class="custom__option" id="likes" data-value="likes" tabindex="-1">Popularité</span>
+          <span class="custom__option" id="title" data-value="title" tabindex="-1">Titre</span>
         </div>
       </div>
-
     </div>
-
   </div>
 
   <!--  -->
@@ -53,7 +47,7 @@
   </section>
 
   <!-- Lightbox Section -->
-  <section class="lightbox">
+  <section class="lightbox" aria-hidden="true">
     <div class="lightbox__container" id="lightbox__container">
     </div>
     <div class="lightbox__gallery"></div>
@@ -65,16 +59,12 @@
 
   <div class="bground__modal">
     <div class="content__modal">
-
       <div class="modal__header">
-
         <div class="contact__ph">
           <h2>
             Contactez Moi
           </h2>
-
           <span class="close__modal" onclick=closeModal()>x</span>
-
         </div>
 
         <div class="ph__name__modal"></div>
@@ -85,25 +75,25 @@
         <form action="index.html" method="get" id="submit">
 
           <div class="formData" id="firstname">
-            <label>Prénom</label>
+            <label for="first">Prénom</label>
             <input class="text__control" data-error="" data-error-visible="false" type="text" name="first" id="first" />
           </div>
 
           <div class="formData" id="lastname">
-            <label>Nom</label>
+            <label for="last">Nom</label>
             <input class="text__control" data-error="" data-error-visible="false" type="text" name="last" id="last" />
           </div>
 
           <div class="formData" id="email-data">
-            <label>Email</label>
+            <label for="email">Email</label>
             <input class="text__control" data-error="" data-error-visible="false" type="email" name="email"
               id="email" />
           </div>
 
           <div class="formData" id="message-data">
-            <label>Votre message</label>
-            <input class="text__control" data-error="" data-error-visible="false" type="text" name="message"
-              id="message" />
+            <label for="message">Votre message (max 200 characteres)</label>
+            <textarea class="text__control" maxlength="250" cols="50" data-error="" data-error-visible="false"
+              name="message" id="message"></textarea>
           </div>
 
           <input id="btn" class="submit__btn" type="submit" value="Envoyer">
@@ -124,31 +114,32 @@
   <!-- JS SCRIPTS -->
 
   <!-- API -->
-  <script src="./js/api/photographersApi.js"></script>
+  <script  src="./js/api/photographersApi.js"></script>
 
   <!-- FACTORIES -->
-  <script src="./js/photographDetail/factories/mediaFactory.js"></script>
-  <script src="./js/photographDetail/builder/photographDetail.js"></script>
+  <script  src="./js/photographDetail/factories/mediaFactory.js"></script>
+  <script  src="./js/photographDetail/builder/photographDetail.js"></script>
 
   <!-- Helpers -->
-  <script src="./js/photographDetail/likes/handleLikes.js"></script>
-  <script src="./js/photographDetail/counter/totalAndPrice.js"></script>
+  <script  src="./js/photographDetail/likes/handleLikes.js"></script>
+  <script  src="./js/photographDetail/counter/totalAndPrice.js"></script>
 
-  <script src="./js/photographDetail/modal/index.js"></script>
-  <script src="js/photographDetail/modal/modalData.js"></script>
+  <script  src="./js/photographDetail/modal/index.js"></script>
+  <script  src="js/photographDetail/modal/modalData.js"></script>
 
+  <!-- KeyBoard -->
+  <script  src="./js/photographDetail/keyBoard/keyBoardHandler.js"></script>
 
   <!-- DropDown -->
-  <script src="./js/photographDetail/dropdown/dropDownMenu.js"></script>
+  <script  src="./js/photographDetail/dropdown/dropDownMenu.js"></script>
 
   <!-- Lightbox -->
 
-  <script src="./js/photographDetail/sort/filterMedia.js"></script>
-  <script src="./js/photographDetail/lightbox/lightBoxOpen.js"></script>
-
+  <script  src="./js/photographDetail/sort/filterMedia.js"></script>
+  <script  src="./js/photographDetail/lightbox/lightBoxOpen.js"></script>
 
   <!-- RUN APP -->
-  <script src="./js/photographDetail/pages/photographPage.js"></script>
+  <script  src="./js/photographDetail/pages/photographPage.js"></script>
 
 </body>
 

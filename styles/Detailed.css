@@ -31,12 +31,15 @@ body {
 .photograph__header {
 	height: 20vh;
 	background-color: rgb(248, 247, 247);
-
 	padding: 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
+}
+
+.photograph__header.focus {
+	border: 1px solid red;
 }
 
 .photograph__contact__form {
@@ -257,12 +260,13 @@ label {
 	flex-wrap: wrap;
 	position: relative;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	height: 400px;
 	width: 340px;
 	margin: 1rem 0;
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 .media__pricing {
@@ -306,9 +310,8 @@ label {
 	width: 100%;
 }
 
-.media__title{
+.media__title {
 	display: none;
-
 }
 
 .media__box {
@@ -319,6 +322,7 @@ label {
 
 .media__box img {
 	object-fit: cover;
+	object-position: center 10%;
 	height: 100%;
 	width: 100%;
 	border-radius: 5px;
@@ -439,7 +443,6 @@ form label {
 
 .formData {
 	display: inline;
-	
 }
 
 .text__control {
@@ -470,19 +473,17 @@ form label {
 
 .modal__header h2 {
 	font-size: 30px;
-
 }
 
 .contact__ph {
 	display: flex;
 	justify-content: space-between;
-
 }
 .contact__ph h2 {
 	margin: 0;
 }
 
-.ph__name__modal h2{
+.ph__name__modal h2 {
 	margin: 0;
 }
 
@@ -496,7 +497,7 @@ form label {
 	cursor: pointer;
 }
 
-#confirmation__msg{
+#confirmation__msg {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -505,11 +506,9 @@ form label {
 	align-items: center;
 	z-index: -5;
 	font-size: 1.8rem;
-
 }
 
-
-.formData[data-error]::after{
+.formData[data-error]::after {
 	content: attr(data-error);
 	font-size: 0.8em;
 	color: #161415;
@@ -522,21 +521,20 @@ form label {
 	transition: 0.3s;
 }
 
-.formData[data-error-visible="true"]::after{
+.formData[data-error-visible="true"]::after {
 	opacity: 1;
 }
 
 .formData[data-error-visible="true"] .text__control {
 	border: 2px solid #e54858;
-	 background-color:  rgb(115 8 8 / 81%);
-  }
+	background-color: rgb(115 8 8 / 81%);
+}
 
 input[data-error]::after {
 	content: attr(data-error);
-font-size: 20px;
+	font-size: 20px;
 	color: rgb(14, 13, 13);
-  }
-
+}
 
 /***Lighbox***/
 
@@ -582,6 +580,7 @@ font-size: 20px;
 	background: transparent;
 	padding: 15px;
 	border: none;
+	outline: none;
 	z-index: 99;
 }
 .lightbox__next {
@@ -592,7 +591,7 @@ font-size: 20px;
 	transition: all 200ms ease-in-out;
 	position: absolute;
 	right: 0;
-
+	outline: none;
 	padding: 15px;
 	border: none;
 	z-index: 99;
@@ -701,8 +700,60 @@ font-size: 20px;
 	opacity: 0.4;
 }
 
-.lightbox__length{
+.lightbox__length {
 	color: white;
 	position: absolute;
 	top: 0;
+}
+
+.gallery__selected {
+	opacity: 0.7;
+}
+
+/****** Navigation*******/
+.lightbox__closed:focus {
+	box-shadow: 0 5px 6px #fff;
+}
+
+@media only screen and (max-width: 600px) {
+	.photograph__media {
+		justify-content: center;
+	}
+
+	.counter__bg {
+		width: 300px;
+		display: flex;
+	}
+
+	.form__media {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 0.5rem;
+	}
+
+	.form__media label {
+		display: none;
+	}
+	.select__wrapper {
+		margin: 1rem;
+	}
+
+	.photograph__header {
+		flex-direction: column;
+		height: auto;
+	}
+
+	.photograph__contact__form {
+		display: block;
+		position: initial;
+		margin: 1rem;
+	}
+
+	.header__basic {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+	}
 }

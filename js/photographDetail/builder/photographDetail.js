@@ -17,7 +17,6 @@ class photographDetail {
 		for (let i = 0; i < this.photographers.length; i++) {
 			if (this.photographers[i].id === this.idValue) {
 				const photographersData = this.photographers[i];
-			
 				const header = `
                 <div class="header__basic">
                 <h1>${photographersData.name}</h1>
@@ -26,11 +25,11 @@ class photographDetail {
                 </div>
                 <p class="header__tagline">${photographersData.tagline}</p>
                  </div>
-                 <div class="photograph__contact__form" onclick=handleModal()>
+                 <div tabindex="0" class="photograph__contact__form" onclick=handleModal()>
                  Contactez-moi
                </div>
                <div class="header__img">
-               <img src="${photographersData.portrait}" />
+               <img src="${photographersData.portrait}" alt=${photographersData.name} />
                </div>
                 `;
 

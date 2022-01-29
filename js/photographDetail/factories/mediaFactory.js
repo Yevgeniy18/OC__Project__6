@@ -14,15 +14,15 @@ class MediaBuilder {
 
 		const mediaSection = `
 			<div id="media-${this.id}" onclick="lightBoxOpen(id,'${this.title}')" class="media__box">
-			<img class="imageMedia" src="${this.image}"/>
+			<img class="imageMedia" src="${this.image}" alt=${this.title}/>
 			<h3 class="media__title">${this.title}</h3>
 			</div>
 			<div class ="media__pricing"> 	
 			<h3>${this.title}</h3>
-			<div class="likes__container">
-			<p id="${this.id}" class="num__likes">${this.likes}</p> 
-			<button id="test-${this.id}" onclick="incrementLikes(${this.likes},${this
-			.id})"> <i class="fas fa-heart"></i> </button>
+			<div  id="${this.id}" class="likes__container">
+			<p class="num__likes">${this.likes}</p> 
+			<button onclick="incrementLikes(${this.likes},${this
+			.id})" aria-controls="increment-likes"> <i class="fas fa-heart"></i></button>
 			</div>
 			</div>
 			`;
@@ -38,15 +38,16 @@ class MediaBuilder {
 		const mediaSection = `
         <div id="media-${this.id}" onclick="lightBoxOpen(id,'${this.title}')" class="media__box">
 		<video id="player"  controls>
-		<source src="${this.video}" type="video/mp4" />
+		<source src="${this.video}" type="video/mp4" alt=${this.title} />
 		</video>
 		<h3 class="media__title">${this.title}</h3>
         </div>
         <div class="media__pricing"> 	
         <h3>${this.title}</h3>
-		<div class="likes__container">
-		<p id="${this.id}" class="num__likes">${this.likes}</p> 
-		<button onclick="incrementLikes(${this.likes},${this.id})"><i class="fas fa-heart"></i> </button>
+		<div id="${this.id}" class="likes__container">
+		<p class="num__likes">${this.likes}</p> 
+		<button  onclick="incrementLikes(${this.likes},${this
+			.id})" aria-controls="increment-likes"><i class="fas fa-heart"></i> </button>
 		</div>
         </div>
         `;
@@ -60,7 +61,7 @@ class MediaBuilder {
 		lightBoxTemplate.classList.add('lightbox__item');
 		const lightBoxMedia = `
 		<div id="lightbox-${this.id}" class="lightbox__item__container" onclick="lightBoxOpen(id,'${this.title}')">
-		<img src="${this.image}" />
+		<img src="${this.image}" alt=${this.title} />
 		<h3 class="media__title">${this.title}</h3>
 		</div>
 		`;
@@ -74,7 +75,7 @@ class MediaBuilder {
 		lightBoxTemplate.classList.add('lightbox__item');
 		const lightBoxMedia = `
 		<div id="lightbox-${this.id}" class="lightbox__item__container" onclick="lightBoxOpen(id,'${this.title}')">
-		<video src="${this.video}" />
+		<video src="${this.video}" alt=${this.title} />
 		<h3 class="media__title">${this.title}</h3>
 		</div>
 		`;

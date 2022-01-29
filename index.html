@@ -12,28 +12,27 @@
 </head>
 
 <body>
-  <header class="header" role="banner">
-    <a href="index.html">
-      <div class="logo">
-        <img src="./assets/logo/logo.png" alt="">
-      </div>
+  <header class="header" aria-label="banner"> 
+    <a href="index.html" id="logo" class="logo">
+
+        <img src="./assets/logo/logo.png" alt="logo">
+     
     </a>
-
-    <div class="tags__area"></div>
-
-
+    <div tabindex="0" class="tags__area"></div>
 
     <h2>Nos Photographes</h2>
   </header>
 
-  <main>
-    <section class="photograph__list__section"></section>
+  <main>  
+    <section id="photograph-list" class="photograph__list__section" tabindex="0"></section>
   </main>
 
   <!-- Factories-->
   <script src="./js/photographList/filter/filterPhotograph.js"></script>
   <script src="./js/photographList/builder/photograph.js"></script>
 
+  <!-- KeyBoard Hanlder -->
+<script src="./js/photographList/navigation/keyBoardHandler.js"></script>
   <!-- API -->
   <script src="./js/api/photographersApi.js"></script>
 

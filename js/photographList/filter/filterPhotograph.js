@@ -25,7 +25,7 @@ class filterPhotograph {
 	}
 
 	onClickFilter() {
-		this.tagsSection.querySelector('form').addEventListener('click', (e) => {
+		this.tagsWrapper.querySelector('form').addEventListener('click', (e) => {
 			const tag = e.target.value;
 			this.filterByTags(tag);
 		});
@@ -38,62 +38,20 @@ class filterPhotograph {
 	render() {
 		const tagForm = `
 		<form class="tags__section" action="#" method="POST" role="select-filter">
-		<option value="portrait">#portrait</option>
-		<option value="events">#events</option>
-		<option value="travel">#travel</option>
-		<option value="animals">#animals</option>
-		<option value="sports">#sports</option>
-		<option value="architecture">#architecture</option>
-		<option value="fashion">#fashion</option>
-		<option value="art">#art</option>
+		<option value="portrait" tabindex="-1">#portrait</option>
+		<option value="events" tabindex="-1">#events</option>
+		<option value="travel" tabindex="-1">#travel</option>
+		<option value="animals" tabindex="-1">#animals</option>
+		<option value="sports" tabindex="-1">#sports</option>
+		<option value="architecture" tabindex="-1">#architecture</option>
+		<option value="fashion" tabindex="-1">#fashion</option>
+		<option value="art" tabindex="-1">#art</option>
 	  </form>
 		`;
 
-		this.tagsSection.innerHTML = tagForm;
+		this.tagsWrapper.innerHTML = tagForm;
 		this.onClickFilter();
 
 		this.tagsWrapper.appendChild(this.tagsSection);
 	}
 }
-
-// function filterPhotograph(data) {
-
-// 	//FILTERING BY TAGS
-// 	const photographSection = document.querySelector('.photograph__list__section');
-
-// 	function filterByTag(tag) {
-// 		clearData();
-
-// 		const photographers = data;
-
-// 		if (!tag) {
-// 			return photographers.forEach((photographer) => {
-// 				const phTemplate = photographerFactory(photographer);
-// 				const phCard = phTemplate.getUserCardDom();
-// 				photographSection.appendChild(phCard);
-// 			});
-// 		} else {
-// 			return photographers.filter((item) => item.tags.some((elt) => elt === tag)).forEach((photographer) => {
-// 				const phTemplate =  new photographerFactory(photographer);
-// 				const phCard = phTemplate.getUserCardDom();
-// 				photographSection.appendChild(phCard);
-// 			});
-// 		}
-// 	}
-
-// 	//ADDING A LISTENER TO CLICK ACTION
-// 	function onClickFilter() {
-// 		const tags = document.querySelector('.tags__section');
-// 		tags.addEventListener('click', function(e) {
-// 			const tag = e.target.value;
-// 			filterByTag(tag);
-// 		});
-// 	}
-
-// 	// CLEARING EXISTING DATA
-// 	function clearData() {
-// 		document.querySelector('.photograph__list__section').innerHTML = '';
-// 	}
-
-// 	return { onClickFilter };
-// }
