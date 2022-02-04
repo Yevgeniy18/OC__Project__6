@@ -5,3 +5,5 @@ From starting point, the user can either filter the available elements(photograp
 Then user can simply click on one of the cards, hence redirected to photographer’s detailed profile displaying his work/portfolio, contact option,
 ability to give a like beneath each media.
 
+
+
