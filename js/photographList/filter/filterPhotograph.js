@@ -29,6 +29,11 @@ class filterPhotograph {
 			const tag = e.target.value;
 			this.filterByTags(tag);
 		});
+
+		this.tagsWrapper.querySelector('form').addEventListener('keypress', (e) => {
+			const tag = e.target.value;
+			this.filterByTags(tag);
+		});
 	}
 
 	clearData() {
@@ -37,21 +42,19 @@ class filterPhotograph {
 
 	render() {
 		const tagForm = `
-		<form class="tags__section" action="#" method="POST" role="select-filter">
-		<option value="portrait" tabindex="-1">#portrait</option>
-		<option value="events" tabindex="-1">#events</option>
-		<option value="travel" tabindex="-1">#travel</option>
-		<option value="animals" tabindex="-1">#animals</option>
-		<option value="sports" tabindex="-1">#sports</option>
-		<option value="architecture" tabindex="-1">#architecture</option>
-		<option value="fashion" tabindex="-1">#fashion</option>
-		<option value="art" tabindex="-1">#art</option>
+		<form  tabindex="0"class="tags__section" action="#" method="POST" role="select-filter">
+		<option value="portrait" tabindex="0">#portrait</option>
+		<option value="events" tabindex="0">#events</option>
+		<option value="travel" tabindex="0">#travel</option>
+		<option value="animals" tabindex="0">#animals</option>
+		<option value="sports" tabindex="0">#sports</option>
+		<option value="architecture" tabindex="0">#architecture</option>
+		<option value="fashion" tabindex="0">#fashion</option>
+		<option value="art" tabindex="0">#art</option>
 	  </form>
 		`;
 
 		this.tagsWrapper.innerHTML = tagForm;
 		this.onClickFilter();
-
-		this.tagsWrapper.appendChild(this.tagsSection);
 	}
 }

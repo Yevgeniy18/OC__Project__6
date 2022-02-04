@@ -1,4 +1,3 @@
-
 class Filter {
 	constructor(media) {
 		this.media = media;
@@ -70,6 +69,20 @@ class Filter {
 		const filterWrapper = document.querySelector('.custom__options');
 
 		filterWrapper.addEventListener('click', (e) => {
+			switch (e.target.id) {
+				case 'all':
+					this.displayAll();
+					break;
+				case 'likes':
+					this.filterByPopularity();
+					break;
+				case 'title':
+					this.filterByTitle();
+					break;
+			}
+		});
+
+		filterWrapper.addEventListener('keypress', (e) => {
 			switch (e.target.id) {
 				case 'all':
 					this.displayAll();

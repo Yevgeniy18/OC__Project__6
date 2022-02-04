@@ -2,7 +2,6 @@
 
 function handleModal() {
 	const formSection = document.querySelector('.modal');
-	console.log(formSection);
 	const modal = document.querySelector('.bground__modal');
 	const content = document.querySelector('.content__modal');
 
@@ -16,6 +15,14 @@ function handleModal() {
 function closeModal() {
 	const modal = document.querySelector('.bground__modal');
 	modal.style.display = 'none';
+}
+
+document.onkeydown = function(e){
+	switch(e.keyCode){
+		case 27:
+			closeModal()
+			break
+	}
 }
 
 // VERFICFATION AND VALIDATION
@@ -204,3 +211,6 @@ for (let input of inputs) {
 }
 
 disableBtn();
+
+
+

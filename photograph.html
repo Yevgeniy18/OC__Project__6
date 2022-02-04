@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./styles/Detailed.css">
-  <title>Photograph</title>
+  <title>FishEye</title>
 </head>
 
 <body>
@@ -26,15 +26,15 @@
   <!-- FILTER MEDIA FORM -->
   <div class="form__media">
     <label>Trier par </label>
-    <div  class="select__wrapper">
-      <div   class="select">
-        <div  tabindex="0" class="select__trigger"> <span>Tous</span>
+    <div role="navigation" class="select__wrapper">
+      <div class="select">
+        <div tabindex="0" class="select__trigger"> <span>Tous</span>
           <div class="arrow"></div>
         </div>
-        <div tabindex="0" class="custom__options">
-          <span class="custom__option selected" id="all" data-value="all" tabindex="-1">Tous</span>
-          <span class="custom__option" id="likes" data-value="likes" tabindex="-1">Popularité</span>
-          <span class="custom__option" id="title" data-value="title" tabindex="-1">Titre</span>
+        <div class="custom__options">
+          <span class="custom__option selected" id="all" data-value="all" tabindex="0" >Tous</span>
+          <span class="custom__option" id="likes" data-value="likes" tabindex="0" >Popularité</span>
+          <span class="custom__option" id="title" data-value="title"tabindex="0" >Titre</span>
         </div>
       </div>
     </div>
@@ -76,27 +76,27 @@
 
           <div class="formData" id="firstname">
             <label for="first">Prénom</label>
-            <input class="text__control" data-error="" data-error-visible="false" type="text" name="first" id="first" />
+            <input tabindex ="1" class="text__control" data-error="" data-error-visible="false" type="text" name="first" id="first" />
           </div>
 
           <div class="formData" id="lastname">
             <label for="last">Nom</label>
-            <input class="text__control" data-error="" data-error-visible="false" type="text" name="last" id="last" />
+            <input  tabindex ="2" class="text__control" data-error="" data-error-visible="false" type="text" name="last" id="last" />
           </div>
 
           <div class="formData" id="email-data">
             <label for="email">Email</label>
-            <input class="text__control" data-error="" data-error-visible="false" type="email" name="email"
+            <input   tabindex ="3" class="text__control" data-error="" data-error-visible="false" type="email" name="email"
               id="email" />
           </div>
 
           <div class="formData" id="message-data">
             <label for="message">Votre message (max 200 characteres)</label>
-            <textarea class="text__control" maxlength="250" cols="50" data-error="" data-error-visible="false"
+            <textarea  tabindex ="4" class="text__control" maxlength="250" cols="50" data-error="" data-error-visible="false"
               name="message" id="message"></textarea>
           </div>
 
-          <input id="btn" class="submit__btn" type="submit" value="Envoyer">
+          <input  tabindex ="5" id="btn" class="submit__btn" type="submit" value="Envoyer">
         </form>
 
       </div>

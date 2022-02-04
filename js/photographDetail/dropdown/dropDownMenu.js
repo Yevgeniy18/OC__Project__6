@@ -3,6 +3,10 @@ class dropDown {
 		document.querySelector('.select__wrapper').addEventListener('click', function() {
 			this.querySelector('.select').classList.toggle('open');
 		});
+
+		document.querySelector(".select__wrapper").addEventListener('keypress', function(){
+			this.querySelector('.select').classList.toggle("open")
+		})
 	}
 
 	selectedFilter() {
@@ -14,6 +18,15 @@ class dropDown {
 					this.closest('.select').querySelector('.select__trigger span').textContent = this.textContent;
 				}
 			});
+			option.addEventListener('keypress', function(){
+				if (!this.classList.contains('selected')) {
+					this.parentNode.querySelector('.custom__option.selected').classList.remove('selected');
+					this.classList.add('selected');
+					this.closest('.select').querySelector('.select__trigger span').textContent = this.textContent;
+				}
+
+
+			})
 		}
 
 		window.addEventListener('click', function(e) {

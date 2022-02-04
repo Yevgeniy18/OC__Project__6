@@ -1,8 +1,8 @@
 function lightBoxOpen(id, title) {
 	const lightBoxSection = document.querySelector('.lightbox');
 	const mediaWrapper = document.querySelector('.lightbox__container');
-
 	const media = document.getElementById(id);
+
 
 	lightBoxSection.style.display = 'block';
 	lightBoxSection.setAttribute('aria-hidden', false);
@@ -18,6 +18,10 @@ function lightBoxOpen(id, title) {
 	mediaWrapper.innerHTML = lightBoxDetails;
 	lightBoxSection.appendChild(mediaWrapper);
 
+console.log(media.children[0])
+
+	// console.log(media.children[0])
+
 	if (media.children[0].src.endsWith('jpg')) {
 		let mediaArea = document.getElementById('lightbox__media');
 
@@ -25,7 +29,7 @@ function lightBoxOpen(id, title) {
 		<img class="lightboxMedia" src="${media.children[0].src}" />	
 		`;
 		mediaArea.innerHTML = imageExt;
-	} else {
+	} else  {
 		let mediaArea = document.getElementById('lightbox__media');
 		const videoExt = `
 		<video class="lightboxMedia"  controls >

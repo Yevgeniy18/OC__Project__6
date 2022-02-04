@@ -21,11 +21,11 @@ class photographDetail {
                 <div class="header__basic">
                 <h1>${photographersData.name}</h1>
                 <div class="header__location">
-                <p>${photographersData.city}, ${photographersData.country} </p>
+                <h3>${photographersData.city}, ${photographersData.country} </h3>
                 </div>
                 <p class="header__tagline">${photographersData.tagline}</p>
                  </div>
-                 <div tabindex="0" class="photograph__contact__form" onclick=handleModal()>
+                 <div tabindex="0" class="photograph__contact__form" onkeypress=handleModal() onclick=handleModal()>
                  Contactez-moi
                </div>
                <div class="header__img">
@@ -52,17 +52,17 @@ class photographDetail {
 		});
 	}
 
-	getPhotographMediaLightBox() {
-		this.media.forEach((media) => {
-			if (media.photographerId === this.idValue && media.image) {
-				const imageTemplateLightbox = new MediaBuilder(media);
-				const imageCardLightBox = imageTemplateLightbox.getLightBoxImageDom();
-				this.lightBoxGallery.appendChild(imageCardLightBox);
-			} else if (media.photographerId === this.idValue && media.video) {
-				const videoTemplateLightbox = new MediaBuilder(media);
-				const videoCardLightBox = videoTemplateLightbox.getLightBoxVideoDom();
-				this.lightBoxGallery.appendChild(videoCardLightBox);
-			}
-		});
-	}
+	// getPhotographMediaLightBox() {
+	// 	this.media.forEach((media) => {
+	// 		if (media.photographerId === this.idValue && media.image) {
+	// 			const imageTemplateLightbox = new MediaBuilder(media);
+	// 			const imageCardLightBox = imageTemplateLightbox.getLightBoxImageDom();
+	// 			this.lightBoxGallery.appendChild(imageCardLightBox);
+	// 		} else if (media.photographerId === this.idValue && media.video) {
+	// 			const videoTemplateLightbox = new MediaBuilder(media);
+	// 			const videoCardLightBox = videoTemplateLightbox.getLightBoxVideoDom();
+	// 			this.lightBoxGallery.appendChild(videoCardLightBox);
+	// 		}
+	// 	});
+	// }
 }

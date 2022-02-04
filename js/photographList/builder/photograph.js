@@ -15,7 +15,7 @@ class photographerFactory {
 		const photographCard = document.createElement('article');
 		photographCard.classList.add('ph__card');
 		const photographer = `
-    <a tabindex="-1" href="photograph.html?id=${this.id}">
+    <a  href="photograph.html?id=${this.id}">
     <div class="ph__container__img">
     <img src="${this.portrait}" alt=${this.name}/>
     </div>

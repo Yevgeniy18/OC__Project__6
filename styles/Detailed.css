@@ -3,6 +3,9 @@
 a {
 	text-decoration: none;
 }
+a:focus {
+	box-shadow: 0px 0px 6px gray;
+}
 header {
 	display: flex;
 	align-items: center;
@@ -12,6 +15,14 @@ header {
 .logo {
 	height: 50px;
 	width: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo:focus{
+	outline: none;
+	box-shadow: 0px 0px 6px gray;
 }
 
 .logo img {
@@ -29,8 +40,8 @@ body {
 /*****PHOTOGRAPH HEADER DATA******/
 
 .photograph__header {
-	height: 20vh;
-	background-color: rgb(248, 247, 247);
+	height: 313px;
+	background-color: #fafafa;
 	padding: 1rem;
 	display: flex;
 	justify-content: space-between;
@@ -51,10 +62,16 @@ body {
 	border-radius: 5px;
 	cursor: pointer;
 	transition: transform 330ms ease-in-out;
+	transition: 300ms all;
 }
 
 .photograph__contact__form:hover {
 	transform: scale(1.05);
+}
+
+.photograph__contact__form:focus{
+	background-color: #db8876;
+	outline: none;
 }
 
 .header__img {
@@ -71,10 +88,18 @@ body {
 }
 
 .header__basic h1 {
-	font-size: 3rem;
-	font-weight: 200;
+	font-size: 64px;
+	font-weight: 400;
 	color: #d3573c;
 	margin: 0;
+}
+.header__basic h3{
+	margin: 0;
+	font-weight: 300;
+}
+
+.header__basic p {
+	margin: 0.5rem  0;
 }
 
 .header__location {
@@ -85,8 +110,8 @@ body {
 
 .header__tagline {
 	color: #525252;
-	font-size: 0.8rem;
-	font-weight: 200;
+	font-size: 18px;
+	font-weight: 400;
 }
 
 /*****PHOTOGRAPH MEDIA DATA******/
@@ -96,7 +121,6 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
-	margin-top: 3rem;
 	margin-bottom: 10%;
 }
 
@@ -104,17 +128,17 @@ body {
 
 .counter__bg {
 	position: fixed;
-	height: 5vh;
-	width: 20%;
+	height: 89px;
+	width: 376px;
 	right: 15%;
 	bottom: 0;
-	border-radius: 10px 10px 0 0;
-	background: #d3573c;
+	border-radius: 5px 5px 0 0;
+	background: #db8876;
 	color: black;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	font-size: 20px;
+	font-size: 24px;
 }
 
 .likes__tag {
@@ -129,10 +153,15 @@ body {
 /*****Filter Form******/
 
 .form__media {
-	margin: 5rem 0;
+	margin-top: 2rem;
 	display: flex;
 	align-items: center;
 	position: relative;
+}
+
+.form__media:focus{
+	outline: none;
+	border: 1px solid red;
 }
 
 label {
@@ -145,8 +174,19 @@ label {
 	position: relative;
 	user-select: none;
 	margin-left: 1rem;
-	width: 260px;
+	width: 171px;
 }
+.select__wrapper:focus{
+	box-shadow: 0 0 15px #901c1c;
+
+	outline: none;
+}
+
+.select__trigger:focus{
+	background: #db8876 ;
+}
+
+
 
 .select {
 	position: relative;
@@ -200,8 +240,9 @@ label {
 	padding: 0 10px;
 	font-size: 15px;
 	font-weight: 300;
+	border-top: 1px solid white;
 	color: #fff;
-	line-height: 30px;
+	line-height: 40px;
 	cursor: pointer;
 	transition: all 0.5s;
 }
@@ -260,10 +301,10 @@ label {
 	flex-wrap: wrap;
 	position: relative;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	height: 400px;
-	width: 340px;
+	height: 351px;
+	width: 350px;
 	margin: 1rem 0;
 	cursor: pointer;
 	border-radius: 5px;
@@ -320,10 +361,17 @@ label {
 	height: 70%;
 }
 
+.media__box:focus{
+	box-shadow: 0 0 20px #901c1c ;
+	outline: none;
+}
+
+
+
 .media__box img {
 	object-fit: cover;
 	object-position: center 10%;
-	height: 100%;
+	height: 300px;
 	width: 100%;
 	border-radius: 5px;
 	transition: all 300ms;
@@ -333,6 +381,16 @@ label {
 .media__box img:hover {
 	background: black;
 	opacity: 0.8;
+}
+
+.focusable-media{
+	transition: all 300ms;
+}
+
+.focusable-media:focus{
+	box-shadow: 0px 0px 15px #901c1c;
+	outline: none;
+
 }
 
 .media__fill {
@@ -345,9 +403,15 @@ label {
 
 .media__box video {
 	object-fit: cover;
-	height: 100%;
+	height: 300px;
 	width: 100%;
+	transition: all 300ms;
 	border-radius: 5px;
+}
+
+.media__box video:hover {
+	background: black;
+	opacity: 0.8;
 }
 
 /*****Modal Sending Message Form*****/
@@ -369,13 +433,13 @@ label {
 
 .content__modal[open-modal] {
 	display: flex;
-	margin: 5% auto;
+	margin: 2% auto;
 	align-items: center;
-	height: 85vh;
+	height: 900px;
 	width: 100%;
-	max-height: 100vh;
-	max-width: 600px;
-	background: #d3573c;
+
+	max-width: 669px;
+	background: #db8876;
 	color: black;
 	box-shadow: 0 3px 6px rgb(87, 85, 85);
 	border-radius: 10px;
@@ -445,16 +509,25 @@ form label {
 	display: inline;
 }
 
+.formData label{
+	font-size: 20px;
+}
+
 .text__control {
 	padding: 8px;
 	width: 100%;
-	height: 40px;
+	height: 50px;
 	outline: none;
 	border: none;
-	border-radius: 8px;
+	border-radius: 5px;
 	margin-bottom: 10px;
 	font-size: 20px;
 	margin-bottom: 1rem;
+	transition: 330ms all;
+}
+
+.text__control:focus{
+	box-shadow: 0 0 30px #901c1c;
 }
 
 #message {
@@ -488,13 +561,20 @@ form label {
 }
 
 .submit__btn {
-	margin-top: 2rem;
+	margin-top: 0.5rem;
+	width: 170px;
 	padding: 20px;
 	background: #901c1c;
 	color: #fff;
 	border: none;
-	border-radius: 8px;
+	border-radius: 5px;
 	cursor: pointer;
+	transition: 330ms all;
+}
+
+.submit__btn:focus{
+	outline: none;
+	box-shadow: 0 0 25px #fff;
 }
 
 #confirmation__msg {
@@ -558,7 +638,7 @@ input[data-error]::after {
 	cursor: pointer;
 	position: absolute;
 	right: 0%;
-	top: 0%;
+	top: 4%;
 	background: transparent;
 
 	border: none;
@@ -604,10 +684,10 @@ input[data-error]::after {
 }
 
 .lightbox__container {
-	height: 80%;
+	height: 90%;
 	width: 80%;
 	display: flex;
-	margin: 2% auto;
+	margin: 0% auto;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
