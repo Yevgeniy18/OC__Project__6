@@ -52,17 +52,4 @@ class photographDetail {
 		});
 	}
 
-	// getPhotographMediaLightBox() {
-	// 	this.media.forEach((media) => {
-	// 		if (media.photographerId === this.idValue && media.image) {
-	// 			const imageTemplateLightbox = new MediaBuilder(media);
-	// 			const imageCardLightBox = imageTemplateLightbox.getLightBoxImageDom();
-	// 			this.lightBoxGallery.appendChild(imageCardLightBox);
-	// 		} else if (media.photographerId === this.idValue && media.video) {
-	// 			const videoTemplateLightbox = new MediaBuilder(media);
-	// 			const videoCardLightBox = videoTemplateLightbox.getLightBoxVideoDom();
-	// 			this.lightBoxGallery.appendChild(videoCardLightBox);
-	// 		}
-	// 	});
-	// }
 }

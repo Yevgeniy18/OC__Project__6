@@ -26,7 +26,6 @@ class ExtraInfo {
 		`;
 
 		likesContainer.innerHTML = totalLikes;
-
 		return likesContainer;
 	}
 
@@ -45,7 +44,6 @@ class ExtraInfo {
 		});
 
 		const priceInfo = `<p>${priceTag}€ / Jour</p>`;
-
 		price.innerHTML = priceInfo;
 	}
 }
