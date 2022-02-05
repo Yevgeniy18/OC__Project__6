@@ -21,7 +21,7 @@ async function displayMedia(photographers, media) {
 	const phDataModal = getModalData(photographers);
 	phDataModal.getPhName();
 
-	 KeyHandler()
+
 
 	// Dropdown menu to filter
 	new dropDown().selectedFilter();
