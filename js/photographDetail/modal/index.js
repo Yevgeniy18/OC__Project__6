@@ -1,7 +1,6 @@
 // OPENING AND CLOSING CONTACT FORM
 
 function handleModal() {
-	const formSection = document.querySelector('.modal');
 	const modal = document.querySelector('.bground__modal');
 	const content = document.querySelector('.content__modal');
 
@@ -10,19 +9,15 @@ function handleModal() {
 	content.removeAttribute('closed-modal');
 	modal.setAttribute('open-bg', true);
 	modal.removeAttribute('remove-bground');
-}
-
-function closeModal() {
-	const modal = document.querySelector('.bground__modal');
-	modal.style.display = 'none';
-}
-
-document.onkeydown = function(e){
-	switch(e.keyCode){
-		case 27:
-			closeModal()
-			break
-	}
+	document.querySelector('.text__control').focus();
+	document.onkeydown = function(e) {
+		switch (e.key) {
+			case 'Esc':
+			case 'Escape':
+				closeModal();
+				break;
+		}
+	};
 }
 
 // VERFICFATION AND VALIDATION
@@ -212,5 +207,7 @@ for (let input of inputs) {
 
 disableBtn();
 
-
-
+function closeModal() {
+	const modal = document.querySelector('.bground__modal');
+	modal.style.display = 'none';
+}

@@ -7,7 +7,7 @@ async function displayMedia(photographers, media) {
 	const Details = new photographDetail(photographers, media);
 	Details.getPhotographDetails();
 	Details.getPhotographMedia();
-	// Details.getPhotographMediaLightBox()
+	
 
 	// Getting total amount of likes and hourly price per day
 	const Info = new ExtraInfo(photographers, media);
@@ -21,7 +21,7 @@ async function displayMedia(photographers, media) {
 	const phDataModal = getModalData(photographers);
 	phDataModal.getPhName();
 
-	const keyBoard = KeyHandler()
+	 KeyHandler()
 
 	// Dropdown menu to filter
 	new dropDown().selectedFilter();

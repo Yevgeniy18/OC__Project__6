@@ -3,24 +3,21 @@ function lightBoxOpen(id, title) {
 	const mediaWrapper = document.querySelector('.lightbox__container');
 	const media = document.getElementById(id);
 
-
 	lightBoxSection.style.display = 'block';
-	lightBoxSection.setAttribute('aria-hidden', false);
 
 	const lightBoxDetails = `
-    <button class="lightbox__closed" onclick="lightBoxClosed()">x</button>
+	<button class="lightbox__closed" onclick="lightBoxClosed()">x</button>
+	<div class="nav-btn-container">
 	<button class="lightbox__prev" aria-controls="media-items">❮</button>
-    <div id="lightbox__media" class="lightbox__media"></div>
-	<h3 class="lightbox__title">${title} </h3>
 	<button class="lightbox__next" aria-controls="media_items">❯</button>
+	</div>
+    <div id="lightbox__media" class="lightbox__media">
+	</div>
+	<h3 class="lightbox__title">${title} </h3>
     `;
 
 	mediaWrapper.innerHTML = lightBoxDetails;
 	lightBoxSection.appendChild(mediaWrapper);
-
-console.log(media.children[0])
-
-	// console.log(media.children[0])
 
 	if (media.children[0].src.endsWith('jpg')) {
 		let mediaArea = document.getElementById('lightbox__media');
@@ -29,18 +26,17 @@ console.log(media.children[0])
 		<img class="lightboxMedia" src="${media.children[0].src}" />	
 		`;
 		mediaArea.innerHTML = imageExt;
-	} else  {
+	} else {
 		let mediaArea = document.getElementById('lightbox__media');
 		const videoExt = `
 		<video class="lightboxMedia"  controls >
-		<source src=${media.children[0].children[0].src} type="video/mp4" /> 
+		<source src=${media.children[0].src} type="video/mp4" /> 
 		</video>
 		`;
 		mediaArea.innerHTML = videoExt;
 	}
 
 	const mediaElts = document.querySelectorAll("[id*='media-']");
-	const lightBoxElts = document.querySelectorAll("[id*='lightbox-']");
 	let lightBox = document.getElementById('lightbox__media');
 	let slideId = document.getElementById(id);
 	let next = document.querySelector('.lightbox__next');
@@ -68,8 +64,9 @@ console.log(media.children[0])
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = mediaElts[currentValue].children[0].children[0].src;
-					let titleData = mediaElts[currentValue].children[1];
+					let vidSrc = mediaElts[currentValue].children[0].src;
+					let titleData = mediaElts[currentValue];
+			
 
 					const videoData = `
 					<video src=${vidSrc} controls />
@@ -101,71 +98,111 @@ console.log(media.children[0])
 					lightBox.innerHTML = imgData;
 					mediaTitle.textContent = titleData.textContent;
 				} else {
-					let vidSrc = mediaElts[currentValue].children[0].children[0].src;
-					let titleData = mediaElts[currentValue].children[1];
+					let vidSrc = mediaElts[currentValue].children[0].src;
+					let titleData = mediaElts[currentValue]
 
 					const videoData = `
 					<video src=${vidSrc} controls />	
 					`;
-					lightBox.innerHTML = videoData;	
+					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
 				}
 			}
 
 			document.onkeydown = function(e) {
-				switch (e.keyCode) {
-					case 39:
+				switch (e.key) {
+					case 'Right':
+					case 'ArrowRight':
 						nextMedia();
 						break;
-					case 37:
+					case 'Left':
+					case 'ArrowLeft':
 						prevMedia();
 						break;
-					case 27:
+					case 'Esc':
+					case 'Escape':
 						lightBoxClosed();
 						break;
 				}
 			};
 		}
 	}
+}
 
-	// Next and previous media from the lightbox
+function lightBoxOnPress(id, title) {
+	const navigationMedia = document.getElementById(id);
+	const lightBoxSection = document.querySelector('.lightbox');
+	const mediaWrapper = document.querySelector('.lightbox__container');
+	let media = navigationMedia;
 
-	for (let currentValue = 0; currentValue < lightBoxElts.length; currentValue++) {
-		if (lightBoxElts[currentValue] === slideId) {
+	lightBoxSection.style.display = 'block';
+
+	const lightBoxDetails = `
+	<button class="lightbox__closed" onclick="lightBoxClosed()">x</button>
+	<div class="nav-btn-container">
+	<button class="lightbox__prev" aria-controls="media-items">❮</button>
+	<button class="lightbox__next" aria-controls="media_items">❯</button>
+	</div>
+    <div id="lightbox__media" class="lightbox__media">
+	</div>
+	<h3 class="lightbox__title">${title} </h3>
+    `;
+
+	mediaWrapper.innerHTML = lightBoxDetails;
+	lightBoxSection.appendChild(mediaWrapper);
+
+	if (media.src.endsWith('jpg')) {
+		let mediaArea = document.getElementById('lightbox__media');
+
+		const imageExt = `
+		<img class="lightboxMedia" src="${media.src}" />	
+		`;	
+		mediaArea.innerHTML = imageExt;
+	} else {
+		let mediaArea = document.getElementById('lightbox__media');
+		const videoExt = `
+		<video class="lightboxMedia"  controls >
+		<source src=${media.src} type="video/mp4" /> 
+		</video>
+		`;
+		mediaArea.innerHTML = videoExt;
+	}
+
+	const mediaElts = document.querySelectorAll("[id*='focus-']");
+	let lightBox = document.getElementById('lightbox__media');
+	let slideId = document.getElementById(id);
+	let next = document.querySelector('.lightbox__next');
+	let prev = document.querySelector('.lightbox__prev');
+	let mediaTitle = document.querySelector('.lightbox__title');
+
+	for (let currentValue = 0; currentValue < mediaElts.length; currentValue++) {
+		if (mediaElts[currentValue] === slideId) {
 			next.addEventListener('click', nextMedia);
 			function nextMedia() {
 				lightBox.innerHTML = '';
 				currentValue = currentValue + 1;
-				currentValue = currentValue % lightBoxElts.length;
+				currentValue = currentValue % mediaElts.length;
 
-				if (lightBoxElts[currentValue].children[0].src.endsWith('jpg')) {
-					let imgSrc = lightBoxElts[currentValue].children[0].src;
-					let titleData = lightBoxElts[currentValue].children[1];
+				if (mediaElts[currentValue].src.endsWith('jpg')) {
+					let imgSrc = mediaElts[currentValue].src;
+					let titleData = mediaElts[currentValue].alt;
 
 					const imgData = `
-						<img src=${imgSrc} />	
-						`;
+					<img src=${imgSrc} />
+					`;
 
 					lightBox.innerHTML = imgData;
-					mediaTitle.textContent = titleData.textContent;
+					mediaTitle.textContent = titleData;
 				} else {
-					lightBox.innerHTML = '';
-
-					let vidSrc = lightBoxElts[currentValue].children[0].src;
-
-					let titleData = mediaElts[currentValue].children[1];
+					let vidSrc = mediaElts[currentValue].src;
+					let titleData = mediaElts[currentValue];
+		
 
 					const videoData = `
-						<video src=${vidSrc} controls />	
-						`;
+					<video src=${vidSrc} controls />
+					`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
-				}
-
-				// Highliting the image when being selected
-
-				if (lightBoxElts[currentValue]) {
-					lightBoxElts[currentValue].classList.add('gallery__selected');
 				}
 			}
 
@@ -173,42 +210,47 @@ console.log(media.children[0])
 
 			function prevMedia() {
 				lightBox.innerHTML = '';
+
 				if (currentValue === 0) {
-					currentValue = lightBoxElts.length;
+					currentValue = mediaElts.length;
 				}
 				currentValue = currentValue - 1;
-				currentValue = currentValue % lightBoxElts.length;
+				currentValue = currentValue % mediaElts.length;
 
-				if (lightBoxElts[currentValue].children[0].src.endsWith('jpg')) {
-					let imgSrc = lightBoxElts[currentValue].children[0].src;
-					let titleData = lightBoxElts[currentValue].children[1];
+				if (mediaElts[currentValue].src.endsWith('jpg')) {
+					let imgSrc = mediaElts[currentValue].src;
+					let titleData = mediaElts[currentValue].alt;
 
 					const imgData = `
-						<img src=${imgSrc} />	
-						`;
+					<img src=${imgSrc} />	
+					`;
 
 					lightBox.innerHTML = imgData;
-					mediaTitle.textContent = titleData.textContent;
+					mediaTitle.textContent = titleData;
 				} else {
-					let vidSrc = lightBoxElts[currentValue].children[0].src;
-					let titleData = mediaElts[currentValue].children[1];
+					let vidSrc = mediaElts[currentValue].src;
+					let titleData = mediaElts[currentValue];
 
 					const videoData = `
-						<video src=${vidSrc} controls />	
-						`;
+					<video src=${vidSrc} controls />	
+					`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
 				}
 			}
+
 			document.onkeydown = function(e) {
-				switch (e.keyCode) {
-					case 39:
+				switch (e.key) {
+					case 'Right':
+					case 'ArrowRight':
 						nextMedia();
 						break;
-					case 37:
+					case 'Left':
+					case 'ArrowLeft':
 						prevMedia();
 						break;
-					case 27:
+					case 'Esc':
+					case 'Escape':
 						lightBoxClosed();
 						break;
 				}

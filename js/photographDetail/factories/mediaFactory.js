@@ -14,11 +14,11 @@ class MediaBuilder {
 
 
 		const mediaSection = `
-			<div tabindex="0" id="media-${this.id}" onkeypress="lightBoxOpen(id,'${this.title}')" onclick="lightBoxOpen(id,'${this.title}')" class="media__box">
-			<img  id="focus-${this.id}  class="focusable-media" src="${this.image}" alt=${this.title}/>
+			<div  id="media-${this.id}"    onclick="lightBoxOpen(id,'${this.title}')" class="media__box">
+			<img tabindex="0" id="focus-${this.id}"  onkeypress="lightBoxOnPress(id,'${this.title}')"  class="focusable-media" src="${this.image}" alt="${this.title}"/>
 			<h3 class="media__title">${this.title}</h3>
+
 			</div>
-	
 			<div class ="media__pricing"> 	
 			<h3>${this.title}</h3>
 			<div  id="${this.id}" class="likes__container">
@@ -27,6 +27,7 @@ class MediaBuilder {
 			.id})" aria-controls="increment-likes"> <i class="fas fa-heart"></i></button>
 			</div>
 			</div>
+		
 
 			`;
 
@@ -41,10 +42,10 @@ class MediaBuilder {
 
 
 		const mediaSection = `
-        <div tabindex="0" id="media-${this.id}" onkeypress="lightBoxOpen(id,'${this.title}')"  onclick="lightBoxOpen(id,'${this.title}')" class="media__box">
-		<video id="focus-${this.id}  class="focusable-media">
-		<source src="${this.video}" type="video/mp4" alt=${this.title} />
-		</video>
+        <div  id="media-${this.id}" onclick="lightBoxOpen(id,'${this.title}')" class="media__box">
+		<video tabindex="0" id="focus-${this.id}"  onkeypress="lightBoxOnPress(id,'${this.title}')"  src="${this.video}" type="video/mp4" alt="${this.title}"  class="focusable-media" />
+		
+
 		<h3 class="media__title">${this.title}</h3>
 		</div>
   
@@ -63,31 +64,4 @@ class MediaBuilder {
 		return mediaTemplate;
 	}
 
-	// getLightBoxImageDom() {
-	// 	const lightBoxTemplate = document.createElement('article');
-	// 	lightBoxTemplate.classList.add('lightbox__item');
-	// 	const lightBoxMedia = `
-	// 	<div id="lightbox-${this.id}" class="lightbox__item__container" onclick="lightBoxOpen(id,'${this.title}')">
-	// 	<img src="${this.image}" alt=${this.title} />
-	// 	<h3 class="media__title">${this.title}</h3>
-	// 	</div>
-	// 	`;
-
-	// 	lightBoxTemplate.innerHTML = lightBoxMedia;
-	// 	return lightBoxTemplate;
-	// }
-
-	// getLightBoxVideoDom() {
-	// 	const lightBoxTemplate = document.createElement('article');
-	// 	lightBoxTemplate.classList.add('lightbox__item');
-	// 	const lightBoxMedia = `
-	// 	<div id="lightbox-${this.id}" class="lightbox__item__container" onclick="lightBoxOpen(id,'${this.title}')">
-	// 	<video src="${this.video}" alt=${this.title} />
-	// 	<h3 class="media__title">${this.title}</h3>
-	// 	</div>
-	// 	`;
-
-	// 	lightBoxTemplate.innerHTML = lightBoxMedia;
-	// 	return lightBoxTemplate;
-	// }
 }

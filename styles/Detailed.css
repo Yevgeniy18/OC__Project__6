@@ -20,7 +20,7 @@ header {
 	justify-content: center;
 }
 
-.logo:focus{
+.logo:focus {
 	outline: none;
 	box-shadow: 0px 0px 6px gray;
 }
@@ -69,7 +69,7 @@ body {
 	transform: scale(1.05);
 }
 
-.photograph__contact__form:focus{
+.photograph__contact__form:focus {
 	background-color: #db8876;
 	outline: none;
 }
@@ -93,13 +93,13 @@ body {
 	color: #d3573c;
 	margin: 0;
 }
-.header__basic h3{
+.header__basic h3 {
 	margin: 0;
 	font-weight: 300;
 }
 
 .header__basic p {
-	margin: 0.5rem  0;
+	margin: 0.5rem 0;
 }
 
 .header__location {
@@ -159,7 +159,7 @@ body {
 	position: relative;
 }
 
-.form__media:focus{
+.form__media:focus {
 	outline: none;
 	border: 1px solid red;
 }
@@ -176,17 +176,15 @@ label {
 	margin-left: 1rem;
 	width: 171px;
 }
-.select__wrapper:focus{
+.select__wrapper:focus {
 	box-shadow: 0 0 15px #901c1c;
 
 	outline: none;
 }
 
-.select__trigger:focus{
-	background: #db8876 ;
+.select__trigger:focus {
+	background: #db8876;
 }
-
-
 
 .select {
 	position: relative;
@@ -361,12 +359,10 @@ label {
 	height: 70%;
 }
 
-.media__box:focus{
+/* .media__box:focus{
 	box-shadow: 0 0 20px #901c1c ;
 	outline: none;
-}
-
-
+} */
 
 .media__box img {
 	object-fit: cover;
@@ -383,14 +379,13 @@ label {
 	opacity: 0.8;
 }
 
-.focusable-media{
+.focusable-media {
 	transition: all 300ms;
 }
 
-.focusable-media:focus{
+.focusable-media:focus {
 	box-shadow: 0px 0px 15px #901c1c;
 	outline: none;
-
 }
 
 .media__fill {
@@ -509,7 +504,7 @@ form label {
 	display: inline;
 }
 
-.formData label{
+.formData label {
 	font-size: 20px;
 }
 
@@ -526,7 +521,7 @@ form label {
 	transition: 330ms all;
 }
 
-.text__control:focus{
+.text__control:focus {
 	box-shadow: 0 0 30px #901c1c;
 }
 
@@ -572,7 +567,7 @@ form label {
 	transition: 330ms all;
 }
 
-.submit__btn:focus{
+.submit__btn:focus {
 	outline: none;
 	box-shadow: 0 0 25px #fff;
 }
@@ -625,21 +620,22 @@ input[data-error]::after {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, .9);
+	background-color: white;
 	z-index: 10;
 }
 
 .lightbox__closed {
-	font-size: 1.5rem;
+	font-size: 40px;
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	color: #fff;
+	color: #901c1c;
 	cursor: pointer;
 	position: absolute;
 	right: 0%;
-	top: 4%;
+	top: 0%;
 	background: transparent;
+	z-index: 6;
 
 	border: none;
 	outline: none;
@@ -651,11 +647,11 @@ input[data-error]::after {
 	background: black;
 }
 .lightbox__prev {
-	color: white;
-	font-size: 1.5rem;
+	color: #901c1c;
+	font-size: 45px;
 	cursor: pointer;
 	transition: all 200ms ease-in-out;
-	position: absolute;
+
 	left: 0;
 	background: transparent;
 	padding: 15px;
@@ -664,12 +660,12 @@ input[data-error]::after {
 	z-index: 99;
 }
 .lightbox__next {
-	color: white;
-	font-size: 1.5rem;
+	color: #901c1c;
+	font-size: 45px;
 	cursor: pointer;
 	background: transparent;
 	transition: all 200ms ease-in-out;
-	position: absolute;
+
 	right: 0;
 	outline: none;
 	padding: 15px;
@@ -688,9 +684,11 @@ input[data-error]::after {
 	width: 80%;
 	display: flex;
 	margin: 0% auto;
+	margin-top: 5rem;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;
 	align-items: center;
 	z-index: -99;
 }
@@ -731,13 +729,13 @@ input[data-error]::after {
 }
 
 .lightbox__title {
-	position: absolute;
-	color: white;
+	color: #901c1c;
 	bottom: 0;
+	width: 630px;
+	text-align: left;
+	font-weight: 400;
 	width: 100%;
-	text-align: center;
-	font-weight: 200;
-	margin-bottom: -1rem;
+	margin-left: 40%;
 }
 
 .lightbox__gallery {
@@ -788,6 +786,16 @@ input[data-error]::after {
 
 .gallery__selected {
 	opacity: 0.7;
+}
+
+.nav-btn-container {
+	background: transparent;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 /****** Navigation*******/
