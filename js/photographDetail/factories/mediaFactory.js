@@ -22,7 +22,7 @@ class MediaBuilder {
 			<h3>${this.title}</h3>
 			<div  id="${this.id}" class="likes__container">
 			<p class="num__likes">${this.likes}</p> 
-			<button tabindex="-1" onclick="incrementLikes(${this.likes},${this
+			<button  onclick="incrementLikes(${this.likes},${this
 			.id})" role="increment"> <i class="fas fa-heart"></i></button>
 			</div>
 			</div>
@@ -49,7 +49,7 @@ class MediaBuilder {
         <h3>${this.title}</h3>
 		<div id="${this.id}" class="likes__container">
 		<p class="num__likes">${this.likes}</p> 
-		<button tabindex="-1"  onclick="incrementLikes(${this.likes},${this
+		<button  onclick="incrementLikes(${this.likes},${this
 			.id})" role="increment"><i class="fas fa-heart"></i> </button>
 		</div>
         </div>

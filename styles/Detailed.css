@@ -6,6 +6,12 @@ a {
 a:focus {
 	box-shadow: 0px 0px 6px gray;
 }
+
+button:focus{
+	outline: none;
+	box-shadow: 0px 0px 6px gray;
+
+}
 header {
 	display: flex;
 	align-items: center;
@@ -359,10 +365,6 @@ label {
 	height: 70%;
 }
 
-/* .media__box:focus{
-	box-shadow: 0 0 20px #901c1c ;
-	outline: none;
-} */
 
 .media__box img {
 	object-fit: cover;
@@ -796,6 +798,13 @@ input[data-error]::after {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+
+.lightboxMedia:focus{
+	outline: none;
+	box-shadow: 0 8px 10px #901c1c;
+
 }
 
 /****** Navigation*******/

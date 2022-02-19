@@ -2,6 +2,7 @@ function lightBoxOpen(id, title) {
 	const lightBoxSection = document.querySelector('.lightbox');
 	const mediaWrapper = document.querySelector('.lightbox__container');
 	const media = document.getElementById(id);
+	
 
 	lightBoxSection.style.display = 'block';
 
@@ -11,7 +12,7 @@ function lightBoxOpen(id, title) {
 	<button class="lightbox__prev" aria-label="previous">❮</button>
 	<button class="lightbox__next" aria-label="next">❯</button>
 	</div>
-    <div id="lightbox__media" class="lightbox__media">
+    <div id="lightbox__media" class="lightbox__media" tabindex="0">
 	</div>
 	<h3 class="lightbox__title">${title} </h3>
     `;
@@ -23,13 +24,13 @@ function lightBoxOpen(id, title) {
 		let mediaArea = document.getElementById('lightbox__media');
 
 		const imageExt = `
-		<img class="lightboxMedia" src="${media.children[0].src}" />	
+		<img class="lightboxMedia" tabindex="0" src="${media.children[0].src}" />	
 		`;
 		mediaArea.innerHTML = imageExt;
 	} else {
 		let mediaArea = document.getElementById('lightbox__media');
 		const videoExt = `
-		<video class="lightboxMedia"  controls >
+		<video class="lightboxMedia" tabindex="0"  controls >
 		<source src=${media.children[0].src} type="video/mp4" /> 
 		</video>
 		`;
@@ -58,7 +59,7 @@ function lightBoxOpen(id, title) {
 					let titleData = mediaElts[currentValue].children[1];
 
 					const imgData = `
-					<img src=${imgSrc} />
+					<img src=${imgSrc} class="lightboxMedia" tabindex="0" />
 					`;
 
 					lightBox.innerHTML = imgData;
@@ -68,7 +69,7 @@ function lightBoxOpen(id, title) {
 					let titleData = mediaElts[currentValue];
 
 					const videoData = `
-					<video src=${vidSrc} controls />
+					<video src=${vidSrc} class="lightboxMedia" tabindex="0" controls />
 					`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
@@ -91,7 +92,7 @@ function lightBoxOpen(id, title) {
 					let titleData = mediaElts[currentValue].children[1];
 
 					const imgData = `
-					<img src=${imgSrc} />	
+					<img src=${imgSrc} class="lightboxMedia" tabindex="0" />	
 					`;
 
 					lightBox.innerHTML = imgData;
@@ -101,7 +102,7 @@ function lightBoxOpen(id, title) {
 					let titleData = mediaElts[currentValue];
 
 					const videoData = `
-					<video src=${vidSrc} controls />	
+					<video src=${vidSrc} class="lightboxMedia" tabindex="0" controls />	
 					`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
@@ -154,13 +155,13 @@ function lightBoxOnPress(id, title) {
 		let mediaArea = document.getElementById('lightbox__media');
 
 		const imageExt = `
-		<img class="lightboxMedia" src="${media.src}" />	
+		<img class="lightboxMedia" tabindex="0" src="${media.src}" />	
 		`;
 		mediaArea.innerHTML = imageExt;
 	} else {
 		let mediaArea = document.getElementById('lightbox__media');
 		const videoExt = `
-		<video class="lightboxMedia"  controls >
+		<video class="lightboxMedia" tabindex="0"  controls >
 		<source src=${media.src} type="video/mp4" /> 
 		</video>
 		`;
@@ -187,7 +188,7 @@ function lightBoxOnPress(id, title) {
 					let titleData = mediaElts[currentValue].alt;
 
 					const imgData = `
-					<img src=${imgSrc} />
+					<img src=${imgSrc} class="lightboxMedia" tabindex="0" />
 					`;
 
 					lightBox.innerHTML = imgData;
@@ -197,7 +198,7 @@ function lightBoxOnPress(id, title) {
 					let titleData = mediaElts[currentValue];
 
 					const videoData = `
-					<video src=${vidSrc} controls />
+					<video src=${vidSrc} class="lightboxMedia" tabindex="0" controls />
 					`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
@@ -220,7 +221,7 @@ function lightBoxOnPress(id, title) {
 					let titleData = mediaElts[currentValue].alt;
 
 					const imgData = `
-					<img src=${imgSrc} />	
+					<img src=${imgSrc} class="lightboxMedia" tabindex="0" />	
 					`;
 
 					lightBox.innerHTML = imgData;
@@ -230,7 +231,7 @@ function lightBoxOnPress(id, title) {
 					let titleData = mediaElts[currentValue];
 
 					const videoData = `
-					<video src=${vidSrc} controls />	
+					<video src=${vidSrc} class="lightboxMedia" tabindex="0" controls />	
 					`;
 					lightBox.innerHTML = videoData;
 					mediaTitle.textContent = titleData.textContent;
@@ -255,6 +256,8 @@ function lightBoxOnPress(id, title) {
 			};
 		}
 	}
+
+	document.querySelector('.lightboxMedia').focus();
 }
 
 // 	Closing Lightbox Element
