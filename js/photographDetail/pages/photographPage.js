@@ -9,7 +9,7 @@ async function displayMedia(photographers, media) {
 	Details.getPhotographMedia();
 	
 
-	// Getting total amount of likes and hourly price per day
+	// Getting total amount of likes and price per day
 	const Info = new ExtraInfo(photographers, media);
 	Info.getTotalLikes();
 	Info.getPrice();
@@ -20,7 +20,6 @@ async function displayMedia(photographers, media) {
 
 	const phDataModal = getModalData(photographers);
 	phDataModal.getPhName();
-
 
 
 	// Dropdown menu to filter
