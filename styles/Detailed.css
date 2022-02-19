@@ -7,10 +7,9 @@ a:focus {
 	box-shadow: 0px 0px 6px gray;
 }
 
-button:focus{
+button:focus {
 	outline: none;
 	box-shadow: 0px 0px 6px gray;
-
 }
 header {
 	display: flex;
@@ -364,7 +363,6 @@ label {
 	width: 100%;
 	height: 70%;
 }
-
 
 .media__box img {
 	object-fit: cover;
@@ -800,11 +798,9 @@ input[data-error]::after {
 	justify-content: space-between;
 }
 
-
-.lightboxMedia:focus{
+.lightboxMedia:focus {
 	outline: none;
 	box-shadow: 0 8px 10px #901c1c;
-
 }
 
 /****** Navigation*******/
@@ -853,4 +849,17 @@ input[data-error]::after {
 		flex-direction: column;
 		text-align: center;
 	}
+}
+
+/****Visually hidden Heading****/
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }

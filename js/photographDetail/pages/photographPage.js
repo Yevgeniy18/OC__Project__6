@@ -17,10 +17,8 @@ async function displayMedia(photographers, media) {
 	// Sort media by number of likes and by alphabetical order
 	new Filter(media).onChangeFilter()
 
-
 	const phDataModal = getModalData(photographers);
 	phDataModal.getPhName();
-
 
 	// Dropdown menu to filter
 	new dropDown().selectedFilter();
