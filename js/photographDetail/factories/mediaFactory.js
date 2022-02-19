@@ -23,7 +23,7 @@ class MediaBuilder {
 			<div  id="${this.id}" class="likes__container">
 			<p class="num__likes">${this.likes}</p> 
 			<button tabindex="-1" onclick="incrementLikes(${this.likes},${this
-			.id})" aria-controls="increment-likes"> <i class="fas fa-heart"></i></button>
+			.id})" role="increment"> <i class="fas fa-heart"></i></button>
 			</div>
 			</div>
 		
@@ -50,7 +50,7 @@ class MediaBuilder {
 		<div id="${this.id}" class="likes__container">
 		<p class="num__likes">${this.likes}</p> 
 		<button tabindex="-1"  onclick="incrementLikes(${this.likes},${this
-			.id})" aria-controls="increment-likes"><i class="fas fa-heart"></i> </button>
+			.id})" role="increment"><i class="fas fa-heart"></i> </button>
 		</div>
         </div>
         `;

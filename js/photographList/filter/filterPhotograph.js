@@ -42,7 +42,7 @@ class filterPhotograph {
 
 	render() {
 		const tagForm = `
-		<form  tabindex="0"class="tags__section" action="#" method="POST" role="select-filter">
+		<form  tabindex="0"class="tags__section" action="#" method="POST" aria-label="filter" role="select-filter">
 		<option value="portrait" tabindex="0">#portrait</option>
 		<option value="events" tabindex="0">#events</option>
 		<option value="travel" tabindex="0">#travel</option>

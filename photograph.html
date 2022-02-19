@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    <a href="index.html" class="logo">
+    <a href="index.html" class="logo" aria-label="banner">
 
       <img src="./assets/logo/logo.png" alt="logo">
 
@@ -76,34 +76,36 @@
 
           <div class="formData" id="firstname">
             <label for="first">Prénom</label>
-            <input tabindex ="1" class="text__control" data-error="" data-error-visible="false" type="text" name="first" id="first" />
+            <input tabindex="1" class="text__control" data-error="" data-error-visible="false" type="text" name="first"
+              id="first" />
           </div>
 
           <div class="formData" id="lastname">
             <label for="last">Nom</label>
-            <input  tabindex ="2" class="text__control" data-error="" data-error-visible="false" type="text" name="last" id="last" />
+            <input tabindex="2" class="text__control" data-error="" data-error-visible="false" type="text" name="last"
+              id="last" />
           </div>
 
           <div class="formData" id="email-data">
             <label for="email">Email</label>
-            <input   tabindex ="3" class="text__control" data-error="" data-error-visible="false" type="email" name="email"
+            <input tabindex="3" class="text__control" data-error="" data-error-visible="false" type="email" name="email"
               id="email" />
           </div>
 
           <div class="formData" id="message-data">
             <label for="message">Votre message (max 200 characteres)</label>
-            <textarea  tabindex ="4" class="text__control" maxlength="250" cols="50" data-error="" data-error-visible="false"
-              name="message" id="message"></textarea>
+            <textarea tabindex="4" class="text__control" maxlength="250" cols="50" data-error=""
+              data-error-visible="false" name="message" id="message"></textarea>
           </div>
 
-          <input  tabindex ="5" id="btn" class="submit__btn" type="submit" value="Envoyer">
+          <input tabindex="5" id="btn" class="submit__btn" type="submit" value="Envoyer">
         </form>
 
       </div>
       <span id="confirmation__msg"></span>
 
     </div>
-</div>
+  </div>
   <!--  -->
 
   <!-- LIKES COUNTER AND PRICE/HOUR -->
@@ -112,29 +114,29 @@
   <!-- JS SCRIPTS -->
 
   <!-- API -->
-  <script  src="./js/api/photographersApi.js"></script>
+  <script src="./js/api/photographersApi.js"></script>
 
   <!-- FACTORIES -->
-  <script  src="./js/photographDetail/factories/mediaFactory.js"></script>
-  <script  src="./js/photographDetail/builder/photographDetail.js"></script>
+  <script src="./js/photographDetail/factories/mediaFactory.js"></script>
+  <script src="./js/photographDetail/builder/photographDetail.js"></script>
 
   <!-- Helpers -->
-  <script  src="./js/photographDetail/likes/handleLikes.js"></script>
-  <script  src="./js/photographDetail/counter/totalAndPrice.js"></script>
+  <script src="./js/photographDetail/likes/handleLikes.js"></script>
+  <script src="./js/photographDetail/counter/totalAndPrice.js"></script>
 
-  <script  src="./js/photographDetail/modal/index.js"></script>
-  <script  src="js/photographDetail/modal/modalData.js"></script>
+  <script src="./js/photographDetail/modal/index.js"></script>
+  <script src="js/photographDetail/modal/modalData.js"></script>
 
 
   <!-- DropDown -->
-  <script  src="./js/photographDetail/dropdown/dropDownMenu.js"></script>
+  <script src="./js/photographDetail/dropdown/dropDownMenu.js"></script>
 
   <!-- Lightbox -->
-  <script  src="./js/photographDetail/sort/filterMedia.js"></script>
-  <script  src="./js/photographDetail/lightbox/lightBoxOpen.js"></script>
+  <script src="./js/photographDetail/sort/filterMedia.js"></script>
+  <script src="./js/photographDetail/lightbox/lightBoxOpen.js"></script>
 
   <!-- RUN APP -->
-  <script  src="./js/photographDetail/pages/photographPage.js"></script>
+  <script src="./js/photographDetail/pages/photographPage.js"></script>
 
 </body>
 

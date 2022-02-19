@@ -8,8 +8,8 @@ function lightBoxOpen(id, title) {
 	const lightBoxDetails = `
 	<button class="lightbox__closed" onclick="lightBoxClosed()">x</button>
 	<div class="nav-btn-container">
-	<button class="lightbox__prev" aria-controls="media-items">❮</button>
-	<button class="lightbox__next" aria-controls="media_items">❯</button>
+	<button class="lightbox__prev" aria-label="previous">❮</button>
+	<button class="lightbox__next" aria-label="next">❯</button>
 	</div>
     <div id="lightbox__media" class="lightbox__media">
 	</div>
@@ -66,7 +66,6 @@ function lightBoxOpen(id, title) {
 				} else {
 					let vidSrc = mediaElts[currentValue].children[0].src;
 					let titleData = mediaElts[currentValue];
-			
 
 					const videoData = `
 					<video src=${vidSrc} controls />
@@ -99,7 +98,7 @@ function lightBoxOpen(id, title) {
 					mediaTitle.textContent = titleData.textContent;
 				} else {
 					let vidSrc = mediaElts[currentValue].children[0].src;
-					let titleData = mediaElts[currentValue]
+					let titleData = mediaElts[currentValue];
 
 					const videoData = `
 					<video src=${vidSrc} controls />	
@@ -156,7 +155,7 @@ function lightBoxOnPress(id, title) {
 
 		const imageExt = `
 		<img class="lightboxMedia" src="${media.src}" />	
-		`;	
+		`;
 		mediaArea.innerHTML = imageExt;
 	} else {
 		let mediaArea = document.getElementById('lightbox__media');
@@ -196,7 +195,6 @@ function lightBoxOnPress(id, title) {
 				} else {
 					let vidSrc = mediaElts[currentValue].src;
 					let titleData = mediaElts[currentValue];
-		
 
 					const videoData = `
 					<video src=${vidSrc} controls />
