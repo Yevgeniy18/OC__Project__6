@@ -2,8 +2,6 @@
 
 ### Build an accessible website [Application demo](https://easterling24.github.io/YevgeniyGupalo__P6__201121/)
 
-## Algorithm 2
-
 ## Project installation
 
 * Start Git bash
