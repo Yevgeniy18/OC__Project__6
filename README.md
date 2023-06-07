@@ -1,8 +1,9 @@
-# OpenClassroom Project 6
+# OpenClassroom Project 6: Create an accessible photography website
 
-### Build an accessible website [Application demo](https://easterling24.github.io/YevgeniyGupalo__P6__201121/)
+## About
+An accessible website, presenting the ability to filter items accoding to categories and dynamically access details of each item
+The final [result](https://yevgeniy18.github.io/OC__Project__6/)
 
 ## Project installation
-
-* Start Git bash
-* git clone https://github.com/Easterling24/YevgeniyGupalo__P6__201121.git
+* git clone https://github.com/Yevgeniy18/OC__Project__6.git to your directory
+* Run live server
